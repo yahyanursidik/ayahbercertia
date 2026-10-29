@@ -1,0 +1,129 @@
+---
+// Ilustrasi benda pengganti thumbnail ketika thumbnailUrl tidak tersedia.
+// Hanya benda nyata (tanpa figur manusia/hewan) sesuai 02-UI-UX-LAYOUT.md §1.
+interface Props {
+  topic: string | undefined;
+  seed: string;
+}
+
+type Kind = 'sun' | 'rain' | 'ice' | 'door' | 'book' | 'sprout' | 'cups' | 'chair' | 'cup' | 'glass' | 'hourglass' | 'generic';
+
+const variants: Record<string, Kind[]> = {
+  tauhid: ['sun'],
+  sains: ['ice', 'rain'],
+  adab: ['door'],
+  kisah: ['book'],
+  aktivitas: ['sprout'],
+  'sosial-emosi': ['cups'],
+  komunikasi: ['chair'],
+  refleksi: ['cup'],
+  emosi: ['glass'],
+  disiplin: ['hourglass'],
+};
+
+const background: Record<Kind, string> = {
+  sun: '#f3ead3',
+  rain: '#dceae6',
+  ice: '#e1eef0',
+  door: '#f0e9d8',
+  book: '#ece6d6',
+  sprout: '#e1ead9',
+  cups: '#e6eccc',
+  chair: '#ebded1',
+  cup: '#e0e7ec',
+  glass: '#dfe9ea',
+  hourglass: '#e4e7e0',
+  generic: '#e7efe5',
+};
+
+const { topic, seed } = Astro.props;
+const options = (topic && variants[topic]) || ['generic'];
+const hash = [...seed].reduce((acc, ch) => Math.imul(acc ^ ch.charCodeAt(0), 16777619) >>> 0, 2166136261) >>> 7;
+const kind: Kind = options[hash % options.length];
+---
+
+<div class="absolute inset-0 grid place-items-center" style={`background:${background[kind]}`}>
+  <svg viewBox="0 0 150 150" class="w-[72%] max-w-44" aria-hidden="true">
+    {kind === 'sun' && (
+      <>
+        <path d="M75 34v12M43 52l8 8M107 52l-8 8M30 84h12M108 84h12" stroke="#c48a3f" stroke-width="5" stroke-linecap="round" />
+        <path d="M45 98a30 30 0 0 1 60 0Z" fill="#d7a05a" />
+        <rect x="20" y="96" width="110" height="26" rx="8" fill="#9cbaa4" />
+      </>
+    )}
+    {kind === 'rain' && (
+      <>
+        <path d="M36 73Q22 52 44 46Q50 22 78 37Q99 31 107 53Q131 56 118 80Z" fill="#fff" />
+        <path d="M44 91l-7 15m32-15-7 15m32-15-7 15" stroke="#477c82" stroke-width="6" stroke-linecap="round" />
+      </>
+    )}
+    {kind === 'ice' && (
+      <>
+        <path d="M30 52l42-17 39 20-3 56-38 24-39-24Z" fill="#c2dde1" stroke="#488e9c" stroke-width="4" />
+        <path d="M30 52l40 23 41-20M70 75v60" fill="none" stroke="#488e9c" stroke-width="3" />
+      </>
+    )}
+    {kind === 'door' && (
+      <>
+        <rect x="35" y="23" width="84" height="116" rx="5" fill="#7d9f8a" />
+        <rect x="47" y="34" width="61" height="100" rx="2" fill="#f8f4e9" />
+        <circle cx="99" cy="88" r="5" fill="#d7a05a" />
+      </>
+    )}
+    {kind === 'book' && (
+      <>
+        <path d="M75 50C60 40 40 38 24 44v62c16-6 36-4 51 6Z" fill="#fbf8f0" stroke="#658578" stroke-width="4" stroke-linejoin="round" />
+        <path d="M75 50c15-10 35-12 51-6v62c-16-6-36-4-51 6Z" fill="#fbf8f0" stroke="#658578" stroke-width="4" stroke-linejoin="round" />
+        <path d="M36 62c10-3 20-3 28 1M36 76c10-3 20-3 28 1M86 63c8-4 18-4 28-1M86 77c8-4 18-4 28-1" stroke="#c7d5bf" stroke-width="4" stroke-linecap="round" fill="none" />
+      </>
+    )}
+    {kind === 'sprout' && (
+      <>
+        <path d="M48 104h54l-6 30H54Z" fill="#c8875a" />
+        <rect x="44" y="96" width="62" height="12" rx="3" fill="#b0744b" />
+        <path d="M75 96V61" stroke="#315d47" stroke-width="6" stroke-linecap="round" />
+        <path d="M75 78C44 76 40 52 52 47c18-6 25 12 23 31M75 68c4-26 32-30 40-16 6 14-18 24-40 16" fill="#649779" />
+      </>
+    )}
+    {kind === 'cups' && (
+      <>
+        <rect x="22" y="62" width="48" height="52" rx="7" fill="#f4f1e8" stroke="#658578" stroke-width="4" />
+        <rect x="80" y="62" width="48" height="52" rx="7" fill="#f4f1e8" stroke="#658578" stroke-width="4" />
+        <path d="M38 52q-6-9 0-17m60 17q-6-9 0-17" fill="none" stroke="#d7a05a" stroke-width="4" stroke-linecap="round" />
+      </>
+    )}
+    {kind === 'chair' && (
+      <>
+        <rect x="41" y="40" width="68" height="65" rx="10" fill="#7da295" />
+        <rect x="35" y="99" width="83" height="15" rx="5" fill="#526b63" />
+        <path d="M44 114v26m66-26v26" stroke="#526b63" stroke-width="6" />
+      </>
+    )}
+    {kind === 'cup' && (
+      <>
+        <rect x="34" y="58" width="78" height="65" rx="8" fill="#f4f1e8" stroke="#658578" stroke-width="5" />
+        <path d="M112 69q33-3 20 23q-6 10-20 8" fill="none" stroke="#658578" stroke-width="6" />
+        <path d="M50 49q-9-12 0-22m26 22q-9-12 0-22" fill="none" stroke="#d7a05a" stroke-width="5" stroke-linecap="round" />
+      </>
+    )}
+    {kind === 'glass' && (
+      <>
+        <path d="M48 32h54l-8 96H56Z" fill="#eef5f4" stroke="#4f8a8d" stroke-width="4" stroke-linejoin="round" />
+        <path d="M52 70h46l-5 54H57Z" fill="#a9d0d2" />
+      </>
+    )}
+    {kind === 'hourglass' && (
+      <>
+        <path d="M44 28h62M44 122h62" stroke="#526b63" stroke-width="7" stroke-linecap="round" />
+        <path d="M52 32c0 30 46 30 46 43s-46 13-46 43h46c0-30-46-30-46-43s46-13 46-43Z" fill="#f4f1e8" stroke="#526b63" stroke-width="4" stroke-linejoin="round" />
+        <path d="M60 114h30l-15-15Z" fill="#d7a05a" />
+      </>
+    )}
+    {kind === 'generic' && (
+      <>
+        <rect x="30" y="38" width="90" height="74" rx="12" fill="#f8f4e9" stroke="#83a998" stroke-width="4" />
+        <path d="M66 60v30l24-15Z" fill="#28594e" />
+      </>
+    )}
+  </svg>
+</div>

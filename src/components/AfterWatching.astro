@@ -1,0 +1,22 @@
+---
+const steps = [
+  { label: 'Amati', title: 'Apa yang terlihat?', body: 'Ajak anak memperhatikan benda atau peristiwa di sekitarnya.' },
+  { label: 'Bicarakan', title: 'Mengapa bisa begitu?', body: 'Dengarkan pertanyaan dan cara anak berpikir sebelum menjawab.' },
+  { label: 'Coba', title: 'Yuk, lakukan bersama.', body: 'Pilih satu kegiatan sederhana yang aman dan bermakna.' },
+];
+---
+
+<ol class="grid gap-3">
+  {steps.map((step, i) => (
+    <li class="flex gap-4 rounded-2xl border border-[#e2e9df] bg-surface p-5 sm:p-6">
+      <span class="grid size-10 shrink-0 place-items-center rounded-full bg-cream text-sm font-extrabold text-amber-ink" aria-hidden="true">
+        {String(i + 1).padStart(2, '0')}
+      </span>
+      <div>
+        <p class="text-xs font-extrabold tracking-[0.12em] text-amber-ink uppercase">{step.label}</p>
+        <p class="mt-1 text-lg font-bold text-deep">{step.title}</p>
+        <p class="mt-1 text-muted">{step.body}</p>
+      </div>
+    </li>
+  ))}
+</ol>

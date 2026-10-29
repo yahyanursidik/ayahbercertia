@@ -1,0 +1,133 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import YouTubePlayer from '../../components/YouTubePlayer.astro';
+import EditorialActivity from '../../components/EditorialActivity.astro';
+import VideoGrid from '../../components/VideoGrid.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import YouTubeIcon from '../../components/YouTubeIcon.astro';
+import { allVideos, isMockCatalog, publicVideos } from '../../data/catalog';
+import type { Video } from '../../lib/videos';
+import { audienceLabel, audiencePath, formatDate, formatDuration, isoDuration, relatedVideos, topicLabel } from '../../lib/videos';
+
+export const getStaticPaths = (() =>
+  allVideos.map((video) => ({ params: { slug: video.slug }, props: { video } }))) satisfies GetStaticPaths;
+
+interface Props { video: Video }
+const { video } = Astro.props;
+
+const unavailable = video.status === 'unavailable';
+const related = relatedVideos(video, publicVideos);
+const editorial = video.editorial?.reviewed ? video.editorial : null;
+
+// JSON-LD VideoObject hanya untuk metadata asli (bukan data contoh) yang lengkap.
+const jsonLd =
+  !isMockCatalog && !unavailable && video.thumbnailUrl && video.youtubeUrl
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'VideoObject',
+        name: video.title,
+        description: video.description,
+        thumbnailUrl: [video.thumbnailUrl],
+        uploadDate: video.publishedAt,
+        duration: isoDuration(video.durationSeconds),
+        embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
+        url: new URL(`/video/${video.slug}`, Astro.site).href,
+      }
+    : null;
+---
+
+<BaseLayout title={video.title} description={video.description} image={video.thumbnailUrl} noindex={unavailable || isMockCatalog}>
+  {jsonLd && <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+
+  <section class="py-8 md:py-12">
+    <div class="container-site">
+      <nav aria-label="Breadcrumb" class="mb-6 text-sm text-muted">
+        <ol class="flex flex-wrap items-center gap-1.5">
+          <li><a href="/" class="hover:text-forest hover:underline">Beranda</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href={audiencePath[video.audience]} class="hover:text-forest hover:underline">{audienceLabel[video.audience]}</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" class="line-clamp-1 text-ink">{video.title}</li>
+        </ol>
+      </nav>
+
+      {unavailable ? (
+        <div class="max-w-2xl rounded-[1.25rem] border border-dashed border-[#d8e0d7] bg-surface p-8 sm:p-10">
+          <p class="eyebrow text-muted">Video tidak tersedia</p>
+          <h1 class="mt-3 text-3xl font-extrabold">{video.title}</h1>
+          <p class="mt-3 text-[#4f6058]">
+            Video ini sudah tidak tersedia di YouTube. Silakan pilih cerita lain di bawah ini atau jelajahi seluruh katalog.
+          </p>
+          <a href="/video" class="btn btn-primary mt-6">Jelajahi video lain</a>
+        </div>
+      ) : (
+        <div class="grid gap-8 lg:grid-cols-[minmax(300px,400px)_1fr] lg:gap-14">
+          <div class="lg:sticky lg:top-24 lg:self-start">
+            <YouTubePlayer video={video} />
+          </div>
+
+          <div class="min-w-0">
+            <div class="flex flex-wrap gap-2 text-xs font-bold">
+              <a
+                href={audiencePath[video.audience]}
+                class:list={[
+                  'rounded-full px-3 py-1',
+                  video.audience === 'child' ? 'bg-sage-soft text-forest' : 'bg-slate-soft text-slate',
+                ]}
+              >
+                {audienceLabel[video.audience]}
+              </a>
+              {video.topics.map((t) => (
+                <a href={`/video?topic=${t}`} class="rounded-full border border-line bg-surface px-3 py-1 text-[#4a6056]">{topicLabel(t)}</a>
+              ))}
+              {editorial?.ageRange && <span class="rounded-full border border-line px-3 py-1 text-muted">Usia {editorial.ageRange}</span>}
+            </div>
+
+            <h1 class="mt-4 text-[1.9rem] font-extrabold sm:text-[2.4rem]">{video.title}</h1>
+            <p class="mt-2 text-sm text-muted">
+              <span class="sr-only">Durasi </span>{formatDuration(video.durationSeconds)} · Dipublikasikan {formatDate(video.publishedAt)}
+            </p>
+
+            {isMockCatalog && (
+              <p class="mt-4 rounded-lg border border-[#f3e5c3] bg-[#fff9e9] px-3 py-2 text-sm text-[#7c6236]">
+                Halaman ini memakai data contoh untuk melihat tata letak, bukan metadata video YouTube asli.
+              </p>
+            )}
+
+            <section class="mt-6" aria-labelledby="ringkasan">
+              <h2 id="ringkasan" class="text-base font-extrabold">Ringkasan</h2>
+              <p class="mt-2 text-[17px] leading-relaxed whitespace-pre-line text-[#4f6058]">{video.description}</p>
+            </section>
+
+            {editorial && (
+              <div class="mt-6">
+                <EditorialActivity editorial={editorial} audience={video.audience} />
+              </div>
+            )}
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              {video.youtubeUrl ? (
+                <a href={video.youtubeUrl} target="_blank" rel="noopener" class="btn btn-primary">
+                  <YouTubeIcon class="size-[18px]" />
+                  Tonton langsung di YouTube
+                  <span class="sr-only">(membuka tab baru)</span>
+                </a>
+              ) : (
+                <span class="btn cursor-not-allowed border border-dashed border-[#c9d6cc] text-muted">Tautan YouTube belum tersedia</span>
+              )}
+              <a href={`/video?audience=${video.audience}`} class="btn btn-secondary">Video lainnya</a>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section border-t border-line/70 bg-[#f8f8f3]" aria-labelledby="video-terkait">
+    <div class="container-site">
+      <SectionHeading id="video-terkait" title={unavailable ? 'Cerita lain untuk ditonton' : 'Video terkait'} link={{ href: '/video', label: 'Jelajahi semua' }} />
+      <VideoGrid videos={related} columns={3} />
+    </div>
+  </section>
+</BaseLayout>

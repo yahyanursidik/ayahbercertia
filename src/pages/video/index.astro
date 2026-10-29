@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import VideoCard from '../../components/VideoCard.astro';
+import MockNotice from '../../components/MockNotice.astro';
+import { publicVideos } from '../../data/catalog';
+
+const PAGE_SIZE = 12;
+---
+
+<BaseLayout
+  title="Jelajahi Video"
+  description="Cari video Ayah Bercerita berdasarkan judul, audiens, dan topik: tauhid, sains, adab, kisah, aktivitas, serta catatan pengasuhan untuk ayah."
+>
+  <PageHeader
+    eyebrow="Perpustakaan video"
+    title="Jelajahi cerita"
+    lede="Temukan kisah, pengetahuan, dan ide kegiatan untuk keluarga. Cari judul, lalu saring untuk anak atau ayah."
+  >
+    <MockNotice class="mt-5" />
+  </PageHeader>
+
+  <section class="section pt-8 md:pt-10" aria-label="Katalog video" data-catalog data-page-size={PAGE_SIZE}>
+    <div class="container-site">
+      <FilterBar />
+
+      <div class="mt-8 mb-5 flex items-center justify-between gap-4">
+        <p class="text-sm text-muted" role="status" aria-live="polite" data-result-count>
+          {publicVideos.length} video
+        </p>
+        <button type="button" class="hidden min-h-11 text-sm font-bold text-forest hover:underline" data-reset>
+          Hapus semua filter
+        </button>
+      </div>
+
+      <ul class="grid grid-cols-2 gap-x-4 gap-y-7 sm:gap-x-5 md:grid-cols-3 lg:grid-cols-4" data-results>
+        {publicVideos.map((video, i) => (
+          <li
+            data-video
+            data-title={video.title.toLowerCase()}
+            data-audience={video.audience}
+            data-topics={video.topics.join(' ')}
+            data-date={Date.parse(video.publishedAt)}
+            class:list={[i >= PAGE_SIZE && 'hidden']}
+          >
+            <VideoCard video={video} />
+          </li>
+        ))}
+      </ul>
+
+      <div class="hidden rounded-2xl border border-dashed border-[#d8e0d7] px-5 py-14 text-center" data-empty>
+        <p class="font-semibold text-ink">Belum ada video untuk pilihan ini.</p>
+        <p class="mt-1 text-sm text-muted">Coba kata kunci lain atau hapus filter.</p>
+        <button type="button" class="btn btn-secondary mt-5" data-reset>Hapus filter</button>
+      </div>
+
+      <div class="mt-10 text-center">
+        <button type="button" class:list={['btn btn-secondary', publicVideos.length <= PAGE_SIZE && 'hidden']} data-load-more>
+          Tampilkan lebih banyak
+        </button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-catalog]')!;
+  const form = root.querySelector<HTMLFormElement>('[data-filter-form]')!;
+  const list = root.querySelector<HTMLUListElement>('[data-results]')!;
+  const items = [...list.querySelectorAll<HTMLLIElement>('[data-video]')];
+  const count = root.querySelector<HTMLElement>('[data-result-count]')!;
+  const empty = root.querySelector<HTMLElement>('[data-empty]')!;
+  const loadMore = root.querySelector<HTMLButtonElement>('[data-load-more]')!;
+  const resets = root.querySelectorAll<HTMLButtonElement>('[data-reset]');
+  const topicChips = form.querySelectorAll<HTMLElement>('[data-topic-audience]');
+  const pageSize = Number(root.dataset.pageSize);
+  let visibleLimit = pageSize;
+
+  const normalize = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
+
+  function readState() {
+    const data = new FormData(form);
+    return {
+      q: String(data.get('q') ?? ''),
+      audience: String(data.get('audience') ?? ''),
+      topic: String(data.get('topic') ?? ''),
+      sort: String(data.get('sort') ?? ''),
+    };
+  }
+
+  function writeForm(params: URLSearchParams) {
+    form.q.value = params.get('q') ?? '';
+    form.sort.value = params.get('sort') === 'oldest' ? 'oldest' : '';
+    for (const name of ['audience', 'topic']) {
+      const value = params.get(name) ?? '';
+      const radio =
+        form.querySelector<HTMLInputElement>(`input[name="${name}"][value="${CSS.escape(value)}"]`) ??
+        form.querySelector<HTMLInputElement>(`input[name="${name}"][value=""]`)!;
+      radio.checked = true;
+    }
+  }
+
+  function syncTopicChips(audience: string) {
+    for (const chip of topicChips) {
+      const hide = audience !== '' && chip.dataset.topicAudience !== audience;
+      chip.hidden = hide;
+      const input = chip.querySelector('input')!;
+      if (hide && input.checked) form.querySelector<HTMLInputElement>('input[name="topic"][value=""]')!.checked = true;
+    }
+  }
+
+  function render() {
+    // Sinkronkan chip dulu: topik bisa ter-reset bila tidak cocok dengan audiens.
+    syncTopicChips(readState().audience);
+    const { q, audience, topic, sort } = readState();
+    const query = normalize(q);
+
+    const sorted = [...items].sort((a, b) =>
+      sort === 'oldest' ? Number(a.dataset.date) - Number(b.dataset.date) : Number(b.dataset.date) - Number(a.dataset.date),
+    );
+    list.append(...sorted);
+
+    const matches = sorted.filter(
+      (el) =>
+        (!audience || el.dataset.audience === audience) &&
+        (!topic || el.dataset.topics!.split(' ').includes(topic)) &&
+        (!query || normalize(el.dataset.title!).includes(query)),
+    );
+    const matchSet = new Set(matches);
+    let shown = 0;
+    for (const el of sorted) {
+      const visible = matchSet.has(el) && shown < visibleLimit;
+      if (visible) shown++;
+      el.classList.toggle('hidden', !visible);
+    }
+
+    const filtered = Boolean(q || audience || topic);
+    count.textContent = filtered ? `${matches.length} dari ${items.length} video` : `${items.length} video`;
+    empty.classList.toggle('hidden', matches.length > 0);
+    list.classList.toggle('hidden', matches.length === 0);
+    loadMore.classList.toggle('hidden', matches.length <= visibleLimit);
+    resets[0].classList.toggle('hidden', !filtered);
+
+    const params = new URLSearchParams();
+    if (q) params.set('q', q);
+    if (audience) params.set('audience', audience);
+    if (topic) params.set('topic', topic);
+    if (sort) params.set('sort', sort);
+    const search = params.toString();
+    history.replaceState(null, '', search ? `?${search}` : location.pathname);
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    render();
+  });
+  form.addEventListener('input', () => {
+    visibleLimit = pageSize;
+    render();
+  });
+  loadMore.addEventListener('click', () => {
+    visibleLimit += pageSize;
+    render();
+  });
+  for (const btn of resets) {
+    btn.addEventListener('click', () => {
+      writeForm(new URLSearchParams());
+      visibleLimit = pageSize;
+      render();
+      form.q.focus();
+    });
+  }
+
+  writeForm(new URLSearchParams(location.search));
+  render();
+</script>

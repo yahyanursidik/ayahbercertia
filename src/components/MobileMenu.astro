@@ -1,0 +1,79 @@
+---
+import { navItems, site } from '../data/site';
+
+interface Props { currentPath: string }
+const { currentPath } = Astro.props;
+const isCurrent = (href: string) => (href === '/' ? currentPath === '/' : currentPath.startsWith(href));
+---
+
+<div class="lg:hidden" data-mobile-menu>
+  <button
+    type="button"
+    class="grid size-11 place-items-center rounded-xl border border-line bg-surface text-deep"
+    aria-expanded="false"
+    aria-controls="menu-seluler"
+    data-menu-toggle
+  >
+    <span class="sr-only" data-menu-label>Buka menu</span>
+    <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <path data-icon-open d="M4 7h16M4 12h16M4 17h16" />
+      <path data-icon-close class="hidden" d="M6 6l12 12M18 6 6 18" />
+    </svg>
+  </button>
+
+  <nav
+    id="menu-seluler"
+    aria-label="Navigasi seluler"
+    class="absolute inset-x-0 top-full hidden border-b border-line bg-surface shadow-[0_14px_24px_rgb(24_62_53/0.08)]"
+    data-menu-panel
+  >
+    <ul class="flex flex-col px-4 py-3 sm:px-6">
+      {navItems.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            aria-current={isCurrent(item.href) ? 'page' : undefined}
+            class="flex min-h-12 items-center rounded-lg px-3 text-base font-semibold text-ink hover:bg-sage-soft aria-[current=page]:text-forest"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+      <li class="mt-2 border-t border-line pt-3 sm:hidden">
+        <a href={site.youtubeUrl ?? '/#youtube'} class="btn btn-primary w-full">
+          Kunjungi channel YouTube
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>('[data-mobile-menu]')) {
+    const toggle = root.querySelector<HTMLButtonElement>('[data-menu-toggle]')!;
+    const panel = root.querySelector<HTMLElement>('[data-menu-panel]')!;
+    const label = root.querySelector<HTMLElement>('[data-menu-label]')!;
+    const iconOpen = root.querySelector('[data-icon-open]')!;
+    const iconClose = root.querySelector('[data-icon-close]')!;
+
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      panel.classList.toggle('hidden', !open);
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+      label.textContent = open ? 'Tutup menu' : 'Buka menu';
+    };
+
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    panel.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a')) setOpen(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    matchMedia('(min-width: 1024px)').addEventListener('change', (e) => e.matches && setOpen(false));
+  }
+</script>

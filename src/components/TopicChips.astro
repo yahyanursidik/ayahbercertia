@@ -1,0 +1,33 @@
+---
+import { topics } from '../lib/videos';
+
+// Ikon garis sederhana berbasis benda, bukan simbol dekoratif.
+const icons: Record<string, string> = {
+  tauhid: 'M3 18h18M6 18a6 6 0 0 1 12 0M12 6v2.5M5.6 9.6 7.3 11.3M18.4 9.6l-1.7 1.7',
+  sains: 'M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3M7.4 15h9.2',
+  adab: 'M6 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17M3 21h18M14.5 12.5h.01',
+  kisah: 'M12 6.5C10 5 7 4.5 4 5v13.5c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5ZM12 6.5V20',
+  aktivitas: 'M12 21v-9M12 12c0-4-3-6.5-7-6.5 0 4 3 6.5 7 6.5ZM12 10c0-3 2.5-5.5 6-5.5 0 3-2.5 5.5-6 5.5ZM7 21h10',
+  'sosial-emosi': 'M4 4h10a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H8.5L5 15v-3H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1ZM18.5 8H20a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-1v3l-3.5-3H11a1 1 0 0 1-1-1v-1',
+};
+
+const childTopics = topics.filter((t) => t.audience === 'child');
+---
+
+<ul class="grid grid-cols-2 gap-3 min-[420px]:grid-cols-3 lg:grid-cols-6">
+  {childTopics.map((topic) => (
+    <li>
+      <a
+        href={`/video?topic=${topic.slug}`}
+        class="flex h-full min-h-28 flex-col items-center justify-center gap-3 rounded-2xl border border-[#e2e9df] bg-surface px-3 py-5 text-center text-sm font-bold text-forest transition-colors hover:border-[#8fae9b] hover:bg-[#f7faf5]"
+      >
+        <span class="grid size-11 place-items-center rounded-xl bg-sage-soft" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="size-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d={icons[topic.slug]} />
+          </svg>
+        </span>
+        {topic.label}
+      </a>
+    </li>
+  ))}
+</ul>

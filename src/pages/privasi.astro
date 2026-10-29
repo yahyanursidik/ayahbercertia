@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const updated = '29 Oktober 2026';
+---
+
+<BaseLayout title="Kebijakan Privasi" description="Bagaimana situs Ayah Bercerita menangani data pengunjung dan pemutar video YouTube.">
+  <PageHeader eyebrow="Kebijakan privasi" title="Privasi pengunjung dan anak" lede={`Terakhir diperbarui ${updated}.`} />
+
+  <section class="section">
+    <div class="container-site">
+      <div class="max-w-3xl space-y-10 text-[17px] leading-relaxed text-[#3d5048] [&_h2]:text-2xl [&_h2]:font-extrabold [&_p]:mt-3 [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:space-y-1.5 [&_ul]:pl-6">
+        <div>
+          <h2>Ringkasnya</h2>
+          <ul>
+            <li>Situs ini tidak memiliki akun, login, atau formulir — kami tidak meminta data pribadi orang tua maupun anak.</li>
+            <li>Kami tidak membuat profil perilaku pengunjung.</li>
+            <li>Video YouTube baru dimuat setelah Anda menekan tombol putar.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Data yang kami kumpulkan</h2>
+          <p>
+            Situs Ayah Bercerita adalah situs statis. Kami tidak menyimpan nama, email, atau data lain dari pengunjung. Seperti
+            situs web pada umumnya, penyedia hosting dapat mencatat data teknis standar (misalnya alamat IP dan jenis peramban)
+            untuk keperluan keamanan dan operasional.
+          </p>
+          <p>
+            Saat ini kami belum memakai layanan analitik. Jika nanti ditambahkan, kami akan memilih analitik ringan yang tidak
+            melacak pengunjung lintas situs, dan halaman ini akan diperbarui terlebih dahulu.
+          </p>
+        </div>
+
+        <div>
+          <h2>Pemutar video YouTube</h2>
+          <p>
+            Video kami di-host oleh YouTube (Google). Untuk mengurangi pengiriman data, pemutar memakai domain
+            <code class="rounded bg-sage-soft px-1.5 py-0.5 text-[15px]">youtube-nocookie.com</code> dan hanya dimuat setelah Anda
+            menekan tombol putar. Setelah pemutar dimuat atau Anda membuka tautan ke YouTube, Google dapat memproses data sesuai
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="font-semibold text-forest underline">Kebijakan Privasi Google</a>.
+            Kami tidak mengendalikan pemrosesan data oleh YouTube.
+          </p>
+        </div>
+
+        <div>
+          <h2>Privasi anak</h2>
+          <p>
+            Konten kami ditujukan untuk ditonton anak bersama orang tua atau pendamping. Kami tidak menyediakan akun anak, kolom
+            komentar, atau formulir yang mengumpulkan data anak. Kami menyarankan pendampingan orang dewasa saat anak menonton
+            video di website maupun di YouTube.
+          </p>
+        </div>
+
+        <div>
+          <h2>Perubahan dan kontak</h2>
+          <p>
+            Kebijakan ini dapat diperbarui seiring perkembangan situs; tanggal pembaruan tercantum di bagian atas. Kontak publik
+            akan dicantumkan di halaman ini setelah tersedia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

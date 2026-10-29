@@ -1,0 +1,64 @@
+---
+import type { Video } from '../lib/videos';
+import { formatDuration } from '../lib/videos';
+import ObjectArt from './ObjectArt.astro';
+
+interface Props { video: Video }
+const { video } = Astro.props;
+// Data contoh tidak punya youtubeUrl, sehingga pemutar tidak bisa dimuat.
+const playable = Boolean(video.youtubeUrl) && video.embeddable;
+const embedUrl = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(video.id)}?autoplay=1&rel=0&playsinline=1`;
+---
+
+<div
+  class="relative mx-auto aspect-[9/16] w-[min(100%,calc(58svh*9/16))] max-w-[400px] overflow-hidden rounded-[1.25rem] bg-[#233d34] lg:mx-0 lg:w-[min(100%,calc(80svh*9/16))]"
+  data-player
+  data-embed-url={playable ? embedUrl : undefined}
+  data-title={video.title}
+>
+  <div class="absolute inset-0" data-poster>
+    {video.thumbnailUrl ? (
+      <img src={video.thumbnailUrl} alt="" class="size-full object-cover" />
+    ) : (
+      <ObjectArt topic={video.topics[0]} seed={video.id} />
+    )}
+    <div class="absolute inset-0 bg-linear-to-t from-[#17362d]/80 via-transparent to-transparent"></div>
+  </div>
+
+  <div class="absolute inset-x-0 bottom-0 flex flex-col items-center gap-3 p-6 text-center text-white">
+    {playable ? (
+      <button
+        type="button"
+        class="grid size-16 place-items-center rounded-full bg-white text-forest shadow-lg transition-transform hover:scale-105"
+        data-play
+      >
+        <svg viewBox="0 0 24 24" class="ml-1 size-7" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5Z" /></svg>
+        <span class="sr-only">Putar video: {video.title}</span>
+      </button>
+    ) : (
+      <span class="grid size-16 place-items-center rounded-full bg-white/70 text-forest" aria-hidden="true">
+        <svg viewBox="0 0 24 24" class="ml-1 size-7" fill="currentColor"><path d="M7 4.5v15l12.5-7.5Z" /></svg>
+      </span>
+    )}
+    <p class="text-sm font-semibold">
+      {playable ? `Putar · ${formatDuration(video.durationSeconds)}` : 'Pemutar aktif setelah channel YouTube tersambung'}
+    </p>
+    {playable && <p class="text-xs text-white/80">Video dimuat dari YouTube setelah tombol diputar.</p>}
+  </div>
+</div>
+
+<script>
+  for (const player of document.querySelectorAll<HTMLElement>('[data-player][data-embed-url]')) {
+    player.querySelector('[data-play]')?.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.src = player.dataset.embedUrl!;
+      iframe.title = `Pemutar YouTube: ${player.dataset.title}`;
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      iframe.className = 'absolute inset-0 size-full border-0';
+      player.replaceChildren(iframe);
+      iframe.focus();
+    });
+  }
+</script>

@@ -1,0 +1,47 @@
+---
+import type { Video } from '../lib/videos';
+import { audienceLabel, formatDuration, topicLabel } from '../lib/videos';
+import ObjectArt from './ObjectArt.astro';
+
+interface Props {
+  video: Video;
+  class?: string;
+}
+
+const { video, class: className } = Astro.props;
+const topic = video.topics[0];
+---
+
+<article class:list={['group relative min-w-0', className]}>
+  <div class="relative aspect-[9/12.5] overflow-hidden rounded-2xl border border-[#dbe2d8] bg-sage-soft">
+    {video.thumbnailUrl ? (
+      <img
+        src={video.thumbnailUrl}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        class="absolute inset-0 size-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+      />
+    ) : (
+      <ObjectArt topic={topic} seed={video.id} />
+    )}
+    <span class="absolute bottom-3 left-3 rounded-md bg-[#17362d]/90 px-2 py-0.5 text-xs font-bold text-white">
+      <span class="sr-only">Durasi </span>{formatDuration(video.durationSeconds)}
+    </span>
+    <span
+      class="absolute right-3 bottom-3 grid size-10 place-items-center rounded-full bg-white/95 text-forest transition-colors group-hover:bg-forest group-hover:text-white"
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 24 24" class="ml-0.5 size-4" fill="currentColor"><path d="M7 4.5v15l12.5-7.5Z" /></svg>
+    </span>
+  </div>
+  <h3 class="mt-3 line-clamp-2 text-[15px] leading-snug font-bold tracking-tight text-ink sm:text-base">
+    <a
+      href={`/video/${video.slug}`}
+      class="after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none focus-visible:after:outline-3 focus-visible:after:outline-offset-4 focus-visible:after:outline-amber"
+    >
+      {video.title}
+    </a>
+  </h3>
+  <p class="mt-1 text-xs text-muted">{audienceLabel[video.audience]} · {topicLabel(topic)}</p>
+</article>

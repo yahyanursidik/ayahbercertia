@@ -1,0 +1,31 @@
+---
+import type { Video } from '../lib/videos';
+import VideoCard from './VideoCard.astro';
+
+interface Props {
+  videos: Video[];
+  /** Jumlah kolom maksimum di desktop. */
+  columns?: 3 | 4;
+  emptyText?: string;
+}
+
+const { videos, columns = 4, emptyText = 'Belum ada video untuk pilihan ini.' } = Astro.props;
+---
+
+{videos.length > 0 ? (
+  <ul
+    class:list={[
+      'grid grid-cols-2 gap-x-4 gap-y-7 sm:gap-x-5',
+      columns === 4 ? 'md:grid-cols-3 lg:grid-cols-4' : 'sm:grid-cols-3',
+    ]}
+  >
+    {videos.map((video, i) => (
+      // Grid 3 kolom: kartu ke-3 disembunyikan di ponsel agar baris 2 kolom tetap genap.
+      <li class:list={[columns === 3 && i === 2 && 'hidden sm:block', columns === 4 && i === 3 && 'md:hidden lg:block']}>
+        <VideoCard video={video} />
+      </li>
+    ))}
+  </ul>
+) : (
+  <p class="rounded-2xl border border-dashed border-[#d8e0d7] px-5 py-14 text-center text-muted">{emptyText}</p>
+)}

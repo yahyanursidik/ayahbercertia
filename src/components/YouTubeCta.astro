@@ -1,0 +1,29 @@
+---
+import { site } from '../data/site';
+import YouTubeIcon from './YouTubeIcon.astro';
+---
+
+<section id="youtube" class="section" aria-labelledby="youtube-title">
+  <div class="container-site">
+    <div class="flex flex-col gap-6 rounded-[1.25rem] border border-[#e8dcc2] bg-cream p-6 sm:p-10 md:flex-row md:items-center md:justify-between">
+      <div class="max-w-xl">
+        <h2 id="youtube-title" class="section-title">Tonton episode baru di YouTube</h2>
+        <p class="section-lede">
+          Video baru dari channel resmi akan muncul otomatis di website ini. Berlangganan agar tidak ketinggalan cerita
+          berikutnya.
+        </p>
+      </div>
+      {site.youtubeUrl ? (
+        <a href={site.youtubeUrl} target="_blank" rel="noopener" class="btn btn-primary shrink-0 px-6">
+          <YouTubeIcon />
+          Subscribe di YouTube
+          <span class="sr-only">(membuka tab baru)</span>
+        </a>
+      ) : (
+        <p class="shrink-0 rounded-xl border border-dashed border-[#c9b98f] px-5 py-3 text-sm font-semibold text-amber-ink">
+          Channel resmi sedang disiapkan
+        </p>
+      )}
+    </div>
+  </div>
+</section>

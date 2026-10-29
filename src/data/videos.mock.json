@@ -1,0 +1,195 @@
+{
+  "_comment": "DATA CONTOH untuk desain — bukan hasil sinkronisasi channel YouTube. Judul, durasi, dan tanggal fiktif.",
+  "isMock": true,
+  "lastSyncedAt": null,
+  "videos": [
+    {
+      "id": "mock-hujan",
+      "slug": "kenapa-hujan-turun-mock-hujan",
+      "title": "Kenapa Hujan Turun?",
+      "description": "Melihat bagaimana hujan terbentuk dan mengajak anak mengamati air di sekitarnya.",
+      "publishedAt": "2026-10-28T10:00:00Z",
+      "durationSeconds": 59,
+      "thumbnailUrl": null,
+      "youtubeUrl": null,
+      "audience": "child",
+      "topics": [
+        "sains"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "editorial": null
+    },
+    {
+      "id": "mock-dengar",
+      "slug": "ayah-dengarkan-dulu-mock-dengar",
+      "title": "Ayah, Dengarkan Dulu",
+      "description": "Meluangkan perhatian penuh saat anak bercerita.",
+      "publishedAt": "2026-10-27T10:00:00Z",
+      "durationSeconds": 69,
+      "thumbnailUrl": null,
+      "youtubeUrl": null,
+      "audience": "father",
+      "topics": [
+        "komunikasi"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "editorial": null
+    },
+    {
+      "id": "mock-izin",
+      "slug": "mengapa-kita-harus-meminta-izin-mock-izin",
+      "title": "Mengapa Kita Harus Meminta Izin?",
+      "description": "Mengenal adab menjaga privasi dan menghormati ruang orang lain.",
+      "publishedAt": "2026-10-26T10:00:00Z",
+      "durationSeconds": 59,
+      "thumbnailUrl": null,
+      "youtubeUrl": null,
+      "audience": "child",
+      "topics": [
+        "adab"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "editorial": null
+    },
+    {
+      "id": "mock-jawaban",
+      "slug": "jangan-terlalu-cepat-memberi-jawaban-mock-jawaban",
+      "title": "Jangan Terlalu Cepat Memberi Jawaban",
+      "description": "Memberi ruang bagi rasa ingin tahu dan kemampuan berpikir anak.",
+      "publishedAt": "2026-10-25T10:00:00Z",
+      "durationSeconds": 75,
+      "thumbnailUrl": null,
+      "youtubeUrl": null,
+      "audience": "father",
+      "topics": [
+        "refleksi"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "editorial": null
+    },
+    {
+      "id": "mock-es",
+      "slug": "kenapa-es-bisa-mencair-mock-es",
+      "title": "Kenapa Es Bisa Mencair?",
+      "description": "Mengamati perubahan wujud melalui es dan air.",
+      "publishedAt": "2026-10-24T10:00:00Z",
+      "durationSeconds": 59,
+      "thumbnailUrl": null,
+      "youtubeUrl": null,
+      "audience": "child",
+      "topics": [
+        "sains"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "editorial": null
+    },
+    {
+      "id": "mock-tegas",
+      "slug": "tegas-tidak-harus-membentak-mock-tegas",
+      "title": "Tegas Tidak Harus Membentak",
+      "description": "Membangun batasan yang jelas dan tetap penuh kasih.",
+      "publishedAt": "2026-10-23T10:00:00Z",
+      "durationSeconds": 72,
+      "thumbnailUrl": null,
+      "youtubeUrl": null,
+      "audience": "father",
+      "topics": [
+        "disiplin"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "editorial": null
+    },
+    {
+      "id": "mock-matahari",
+      "slug": "siapa-yang-menerbitkan-matahari-mock-matahari",
+      "title": "Siapa yang Menerbitkan Matahari?",
+      "description": "Mengamati pagi hari dan mengenal Sang Pencipta lewat alam.",
+      "publishedAt": "2026-10-22T10:00:00Z",
+      "durationSeconds": 59,
+      "thumbnailUrl": null,
+      "youtubeUrl": null,
+      "audience": "child",
+      "topics": [
+        "tauhid"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "editorial": null
+    },
+    {
+      "id": "mock-marah",
+      "slug": "saat-anak-marah-ayah-tenang-dulu-mock-marah",
+      "title": "Saat Anak Marah, Ayah Tenang Dulu",
+      "description": "Menenangkan diri sebelum merespons emosi anak.",
+      "publishedAt": "2026-10-21T10:00:00Z",
+      "durationSeconds": 66,
+      "thumbnailUrl": null,
+      "youtubeUrl": null,
+      "audience": "father",
+      "topics": [
+        "emosi"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "editorial": null
+    },
+    {
+      "id": "mock-biji",
+      "slug": "bagaimana-biji-bisa-tumbuh-mock-biji",
+      "title": "Bagaimana Biji Bisa Tumbuh?",
+      "description": "Mengikuti pertumbuhan biji dan akar dari hari ke hari.",
+      "publishedAt": "2026-10-20T10:00:00Z",
+      "durationSeconds": 59,
+      "thumbnailUrl": null,
+      "youtubeUrl": null,
+      "audience": "child",
+      "topics": [
+        "aktivitas"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "editorial": null
+    },
+    {
+      "id": "mock-jujur",
+      "slug": "mengapa-kita-perlu-jujur-mock-jujur",
+      "title": "Mengapa Kita Perlu Jujur?",
+      "description": "Mengenal kejujuran dalam kehidupan sehari-hari.",
+      "publishedAt": "2026-10-19T10:00:00Z",
+      "durationSeconds": 59,
+      "thumbnailUrl": null,
+      "youtubeUrl": null,
+      "audience": "child",
+      "topics": [
+        "sosial-emosi"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "editorial": null
+    },
+    {
+      "id": "mock-langit",
+      "slug": "mengapa-langit-berwarna-biru-mock-langit",
+      "title": "Mengapa Langit Berwarna Biru?",
+      "description": "Contoh video yang sudah tidak tersedia di YouTube, untuk menguji tampilan status tidak tersedia.",
+      "publishedAt": "2026-10-15T10:00:00Z",
+      "durationSeconds": 59,
+      "thumbnailUrl": null,
+      "youtubeUrl": null,
+      "audience": "child",
+      "topics": [
+        "sains"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "unavailable",
+      "editorial": null
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import TopicLinks from '../components/TopicLinks.astro';
+import VideoGrid from '../components/VideoGrid.astro';
+import AfterWatching from '../components/AfterWatching.astro';
+import MockNotice from '../components/MockNotice.astro';
+import { childVideos } from '../data/catalog';
+---
+
+<BaseLayout
+  title="Cerita Anak"
+  description="Cerita singkat yang mengajak anak bertanya dan mencoba: tauhid, sains, adab, kisah, aktivitas, dan sosial-emosi untuk ditonton bersama keluarga."
+>
+  <PageHeader
+    tone="sage"
+    eyebrow="Cerita untuk Kita"
+    title="Cerita yang mengajak anak bertanya dan mencoba"
+    lede="Kumpulan video singkat untuk mengenal Allah, memahami alam, dan belajar adab — ditonton bersama, lalu dilanjutkan dengan percakapan dan kegiatan nyata."
+  >
+    <div class="mt-7 flex flex-wrap gap-3">
+      <a href="#cerita-pilihan" class="btn btn-primary">Lihat cerita pilihan</a>
+      <a href="/video?audience=child" class="btn btn-secondary">Cari di semua video</a>
+    </div>
+  </PageHeader>
+
+  <section class="section pb-0" aria-labelledby="topik-anak">
+    <div class="container-site">
+      <SectionHeading id="topik-anak" title="Pilih topik" lede="Mulai dari hal yang sedang membuat anak penasaran." />
+      <TopicLinks audience="child" videos={childVideos} />
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="cerita-pilihan">
+    <div class="container-site">
+      <SectionHeading id="cerita-pilihan" title="Cerita pilihan untuk anak" link={{ href: '/video?audience=child', label: 'Semua cerita anak' }}>
+        <MockNotice class="mt-3" />
+      </SectionHeading>
+      <VideoGrid videos={childVideos.slice(0, 8)} emptyText="Belum ada cerita anak. Video baru akan muncul setelah dipublikasikan di YouTube." />
+    </div>
+  </section>
+
+  <section class="section bg-[#f8f8f3]" aria-labelledby="kegiatan-keluarga">
+    <div class="container-site grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+      <div>
+        <SectionHeading
+          id="kegiatan-keluarga"
+          title="Lanjutkan menjadi kegiatan keluarga"
+          lede="Satu video cukup untuk membuka percakapan. Pilih satu langkah yang paling mungkin dilakukan hari ini, tanpa memaksa."
+        />
+        <p class="text-sm text-muted">
+          Pertanyaan dan kegiatan khusus per video hanya ditampilkan setelah disunting tim editorial, dan selalu dilakukan dengan
+          pendampingan orang dewasa.
+        </p>
+      </div>
+      <AfterWatching />
+    </div>
+  </section>
+</BaseLayout>

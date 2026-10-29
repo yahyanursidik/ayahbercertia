@@ -1,0 +1,20 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  lede?: string;
+  tone?: 'cream' | 'sage' | 'slate';
+}
+
+const { eyebrow, title, lede, tone = 'cream' } = Astro.props;
+const toneClass = { cream: 'bg-cream', sage: 'bg-sage-soft', slate: 'bg-slate-soft' }[tone];
+---
+
+<section class:list={['border-b border-line/70', toneClass]}>
+  <div class="container-site py-10 md:py-16">
+    <p class:list={['eyebrow', tone === 'slate' && 'text-slate']}>{eyebrow}</p>
+    <h1 class="mt-3 max-w-3xl text-[2rem] font-extrabold sm:text-[2.6rem]">{title}</h1>
+    {lede && <p class="mt-4 max-w-2xl text-[17px] leading-relaxed text-[#4c5f56]">{lede}</p>}
+    <slot />
+  </div>
+</section>

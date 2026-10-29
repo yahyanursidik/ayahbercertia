@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* Design tokens — 02-UI-UX-LAYOUT.md §2 */
+@theme {
+  --color-forest: #28594e;
+  --color-deep: #183e35;
+  --color-sage: #83a998;
+  --color-sage-soft: #e7efe5;
+  --color-cream: #f5f0e5;
+  --color-amber: #d7a05a;
+  --color-amber-ink: #8a5f22; /* amber yang lolos kontras AA untuk teks kecil */
+  --color-slate: #475e70;
+  --color-slate-soft: #e9edf0;
+  --color-ink: #21352f;
+  --color-surface: #ffffff;
+  --color-muted: #5f6d68;
+  --color-line: #dfe6de;
+  --color-paper: #fdfcf9;
+
+  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --container-site: 1200px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  h1, h2, h3 {
+    @apply text-deep;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-amber);
+    outline-offset: 3px;
+  }
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-4 sm:px-6;
+  }
+  .eyebrow {
+    @apply text-xs font-extrabold uppercase tracking-[0.16em] text-forest;
+  }
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold transition-colors;
+  }
+  .btn-primary {
+    @apply bg-forest text-white hover:bg-deep;
+  }
+  .btn-secondary {
+    @apply border border-[#aac2b4] bg-transparent text-forest hover:bg-sage-soft;
+  }
+  .section {
+    @apply py-12 md:py-16;
+  }
+  .section-title {
+    @apply text-[1.625rem] font-extrabold md:text-4xl;
+  }
+  .section-lede {
+    @apply mt-2.5 max-w-2xl text-muted;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

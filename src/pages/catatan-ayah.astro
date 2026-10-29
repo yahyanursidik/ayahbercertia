@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import TopicLinks from '../components/TopicLinks.astro';
+import VideoGrid from '../components/VideoGrid.astro';
+import MockNotice from '../components/MockNotice.astro';
+import { fatherVideos } from '../data/catalog';
+
+const habits = [
+  { title: 'Tonton sendiri dulu', body: 'Sekitar satu menit, di sela kesibukan. Tidak perlu menunggu waktu luang yang panjang.' },
+  { title: 'Pilih satu hal', body: 'Ambil satu gagasan yang paling dekat dengan keadaan keluarga minggu ini.' },
+  { title: 'Coba dengan sabar', body: 'Perubahan kecil yang konsisten lebih bermakna daripada target besar yang melelahkan.' },
+];
+---
+
+<BaseLayout
+  title="Catatan Ayah"
+  description="Refleksi singkat untuk para ayah tentang komunikasi, emosi, disiplin responsif, fitrah, dan pendidikan Islam dalam keluarga."
+>
+  <PageHeader
+    tone="slate"
+    eyebrow="Catatan Ayah"
+    title="Menjadi ayah adalah perjalanan belajar."
+    lede="Refleksi singkat tentang kehadiran, komunikasi, emosi, dan pendidikan keluarga — praktis untuk dicoba, bukan ceramah panjang."
+  >
+    <div class="mt-7 flex flex-wrap gap-3">
+      <a href="#catatan-terbaru" class="btn btn-primary bg-slate hover:bg-[#364a5a]">Lihat catatan terbaru</a>
+      <a href="/video?audience=father" class="btn btn-secondary border-[#a9b8c4] text-slate hover:bg-white/60">Cari di semua video</a>
+    </div>
+  </PageHeader>
+
+  <section class="section pb-0" aria-labelledby="tema-ayah">
+    <div class="container-site">
+      <SectionHeading id="tema-ayah" title="Pilih tema" lede="Temukan catatan sesuai hal yang sedang Ayah hadapi." />
+      <TopicLinks audience="father" videos={fatherVideos} />
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="catatan-terbaru">
+    <div class="container-site">
+      <SectionHeading id="catatan-terbaru" title="Catatan terbaru" link={{ href: '/video?audience=father', label: 'Semua catatan ayah' }}>
+        <MockNotice class="mt-3" />
+      </SectionHeading>
+      <VideoGrid videos={fatherVideos.slice(0, 8)} emptyText="Belum ada catatan ayah. Video baru akan muncul setelah dipublikasikan di YouTube." />
+    </div>
+  </section>
+
+  <section class="section bg-slate-soft/60" aria-labelledby="satu-langkah">
+    <div class="container-site grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-start">
+      <div>
+        <SectionHeading id="satu-langkah" title="Satu video, satu langkah kecil" lede="Cara sederhana memakai Catatan Ayah dalam keseharian." />
+        <p class="rounded-xl border border-[#dde5eb] bg-surface p-4 text-sm text-muted">
+          Catatan Ayah adalah bahan refleksi, bukan layanan konseling atau diagnosis. Jika Ayah khawatir tentang perkembangan
+          atau kesehatan anak, bicarakan dengan tenaga profesional.
+        </p>
+      </div>
+      <ol class="grid gap-3">
+        {habits.map((h, i) => (
+          <li class="flex gap-4 rounded-2xl border border-[#dde5eb] bg-surface p-5 sm:p-6">
+            <span class="grid size-10 shrink-0 place-items-center rounded-full bg-slate-soft text-sm font-extrabold text-slate" aria-hidden="true">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <div>
+              <p class="text-lg font-bold text-deep">{h.title}</p>
+              <p class="mt-1 text-muted">{h.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+</BaseLayout>

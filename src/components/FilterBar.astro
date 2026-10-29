@@ -1,0 +1,72 @@
+---
+import { topics } from '../lib/videos';
+
+const audiences = [
+  { value: '', label: 'Semua Video' },
+  { value: 'child', label: 'Untuk Anak' },
+  { value: 'father', label: 'Untuk Ayah' },
+];
+
+const chip =
+  'inline-flex min-h-11 cursor-pointer items-center rounded-full border border-[#d5e2d7] bg-surface px-4 text-sm font-bold text-[#4a6056] transition-colors hover:border-[#8fae9b] peer-checked:border-forest peer-checked:bg-forest peer-checked:text-white peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-amber';
+---
+
+<form role="search" aria-label="Cari dan saring video" class="grid gap-5" data-filter-form action="/video" method="get">
+  <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+    <label class="relative block w-full max-w-xl">
+      <span class="sr-only">Cari judul video</span>
+      <svg class="pointer-events-none absolute top-1/2 left-4 size-5 -translate-y-1/2 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />
+      </svg>
+      <input
+        type="search"
+        name="q"
+        placeholder="Cari cerita atau topik…"
+        autocomplete="off"
+        class="min-h-12 w-full rounded-xl border border-[#cfded2] bg-surface py-3 pr-4 pl-12 text-base outline-none placeholder:text-[#7d8a85] focus-visible:border-forest focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-amber"
+      />
+    </label>
+    <label class="flex items-center gap-2 text-sm font-semibold text-muted sm:ml-auto">
+      Urutkan
+      <select
+        name="sort"
+        class="min-h-11 rounded-xl border border-[#cfded2] bg-surface px-3 text-sm font-bold text-ink"
+      >
+        <option value="">Terbaru</option>
+        <option value="oldest">Terlama</option>
+      </select>
+    </label>
+  </div>
+
+  <fieldset>
+    <legend class="sr-only">Audiens</legend>
+    <div class="flex flex-wrap gap-2">
+      {audiences.map((a) => (
+        <label>
+          <input type="radio" name="audience" value={a.value} class="peer sr-only" checked={a.value === ''} />
+          <span class={chip}>{a.label}</span>
+        </label>
+      ))}
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend class="mb-2 text-xs font-bold tracking-[0.12em] text-muted uppercase">Topik</legend>
+    <div class="flex flex-wrap gap-2">
+      <label>
+        <input type="radio" name="topic" value="" class="peer sr-only" checked />
+        <span class={chip}>Semua topik</span>
+      </label>
+      {topics.map((t) => (
+        <label data-topic-audience={t.audience}>
+          <input type="radio" name="topic" value={t.slug} class="peer sr-only" />
+          <span class={chip}>{t.label}</span>
+        </label>
+      ))}
+    </div>
+  </fieldset>
+
+  <noscript>
+    <button type="submit" class="btn btn-primary w-fit">Terapkan</button>
+  </noscript>
+</form>

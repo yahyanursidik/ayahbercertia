@@ -1,0 +1,24 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  lede?: string;
+  link?: { href: string; label: string };
+}
+
+const { id, title, lede, link } = Astro.props;
+---
+
+<div class="mb-7 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+  <div>
+    <h2 id={id} class="section-title">{title}</h2>
+    {lede && <p class="section-lede">{lede}</p>}
+    <slot />
+  </div>
+  {link && (
+    <a href={link.href} class="inline-flex min-h-11 shrink-0 items-center gap-1.5 font-bold text-forest hover:underline">
+      {link.label}
+      <svg viewBox="0 0 20 20" class="size-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5" /></svg>
+    </a>
+  )}
+</div>

@@ -1,0 +1,12 @@
+---
+import { isMockCatalog } from '../data/catalog';
+
+interface Props { class?: string }
+const { class: className } = Astro.props;
+---
+
+{isMockCatalog && (
+  <p class:list={['inline-block rounded-lg border border-[#f3e5c3] bg-[#fff9e9] px-3 py-1.5 text-xs text-[#7c6236]', className]}>
+    <slot>Data contoh — video asli muncul setelah channel YouTube tersambung.</slot>
+  </p>
+)}

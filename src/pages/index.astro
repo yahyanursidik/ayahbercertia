@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TopicChips from '../components/TopicChips.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import VideoGrid from '../components/VideoGrid.astro';
+import AudienceFeature from '../components/AudienceFeature.astro';
+import AfterWatching from '../components/AfterWatching.astro';
+import AboutBrief from '../components/AboutBrief.astro';
+import YouTubeCta from '../components/YouTubeCta.astro';
+import MockNotice from '../components/MockNotice.astro';
+import { childVideos, fatherVideos, publicVideos } from '../data/catalog';
+
+const latest = publicVideos.slice(0, 3);
+const childPicks = childVideos.slice(0, 4);
+const fatherPicks = fatherVideos.slice(0, 4);
+---
+
+<BaseLayout>
+  <Hero />
+
+  <section class="section" aria-labelledby="topik">
+    <div class="container-site">
+      <SectionHeading id="topik" title="Mulai dari rasa ingin tahu" lede="Pilih tema yang ingin dijelajahi bersama anak hari ini." />
+      <TopicChips />
+    </div>
+  </section>
+
+  <section class="section bg-[#f8f8f3]" aria-labelledby="terbaru">
+    <div class="container-site grid lg:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)] lg:gap-12">
+      <div class="lg:pt-2">
+        <SectionHeading id="terbaru" title="Cerita terbaru" lede="Video singkat untuk ditonton, dibicarakan, lalu dicoba bersama.">
+          <MockNotice class="mt-4" />
+        </SectionHeading>
+        <a href="/video" class="btn btn-secondary hidden lg:inline-flex">Lihat semua video</a>
+      </div>
+      <div>
+        <VideoGrid videos={latest} columns={3} />
+        <a href="/video" class="btn btn-secondary mt-7 w-full lg:hidden">Lihat semua video</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="jalur">
+    <div class="container-site">
+      <SectionHeading
+        id="jalur"
+        title="Dua ruang, satu perjalanan"
+        lede="Untuk anak yang ingin memahami dunia, dan ayah yang terus belajar mendampingi."
+      />
+      <AudienceFeature />
+    </div>
+  </section>
+
+  <section class="section border-t border-line/70" aria-labelledby="pilihan-anak">
+    <div class="container-site space-y-14">
+      <div>
+        <SectionHeading id="pilihan-anak" title="Cerita untuk Kita" lede="Pilihan video untuk ditonton bersama anak." link={{ href: '/cerita-anak', label: 'Semua cerita anak' }} />
+        <VideoGrid videos={childPicks} />
+      </div>
+      <div aria-labelledby="pilihan-ayah" role="region">
+        <SectionHeading id="pilihan-ayah" title="Catatan Ayah" lede="Refleksi singkat untuk dipraktikkan hari ini." link={{ href: '/catatan-ayah', label: 'Semua catatan ayah' }} />
+        <VideoGrid videos={fatherPicks} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-[#f8f8f3]" aria-labelledby="setelah-menonton">
+    <div class="container-site grid gap-10 lg:grid-cols-2 lg:gap-12">
+      <div>
+        <SectionHeading
+          id="setelah-menonton"
+          title="Setelah menonton, lakukan bersama"
+          lede="Tiga langkah ringan — bukan tugas berat — agar cerita berlanjut menjadi pengalaman nyata."
+        />
+        <AfterWatching />
+      </div>
+      <AboutBrief />
+    </div>
+  </section>
+
+  <YouTubeCta />
+</BaseLayout>

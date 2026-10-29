@@ -1,0 +1,31 @@
+---
+import type { Audience, Video } from '../lib/videos';
+import { topics } from '../lib/videos';
+
+interface Props {
+  audience: Audience;
+  videos: Video[];
+}
+
+const { audience, videos } = Astro.props;
+const items = topics
+  .filter((t) => t.audience === audience)
+  .map((t) => ({ ...t, count: videos.filter((v) => v.topics.includes(t.slug)).length }));
+const accent = audience === 'child' ? 'hover:border-[#8fae9b] text-forest' : 'hover:border-[#9fb2c1] text-slate';
+---
+
+<ul class="flex flex-wrap gap-2">
+  {items.map((t) => (
+    <li>
+      <a
+        href={`/video?audience=${audience}&topic=${t.slug}`}
+        class:list={['inline-flex min-h-11 items-center gap-2 rounded-full border border-line bg-surface px-4 text-sm font-bold transition-colors', accent]}
+      >
+        {t.label}
+        <span class="rounded-full bg-paper px-2 text-xs font-semibold text-muted">
+          {t.count}<span class="sr-only"> video</span>
+        </span>
+      </a>
+    </li>
+  ))}
+</ul>

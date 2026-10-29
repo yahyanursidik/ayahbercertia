@@ -1,0 +1,48 @@
+---
+import { navItems, site } from '../data/site';
+import MobileMenu from './MobileMenu.astro';
+import YouTubeIcon from './YouTubeIcon.astro';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+const youtubeHref = site.youtubeUrl ?? '/#youtube';
+---
+
+<header class="sticky top-0 z-40 border-b border-line/80 bg-paper/90 backdrop-blur-md">
+  <div class="container-site flex h-16 items-center justify-between gap-6 md:h-[72px]">
+    <a href="/" class="flex shrink-0 items-center gap-2.5 font-extrabold tracking-tight text-deep">
+      <!-- Wordmark placeholder sampai logo resmi tersedia -->
+      <span class="grid size-10 place-items-center rounded-xl bg-forest text-[15px] font-black text-white" aria-hidden="true">AB</span>
+      <span class="text-[17px]">{site.name}</span>
+    </a>
+
+    <nav aria-label="Navigasi utama" class="hidden lg:block">
+      <ul class="flex items-center gap-7">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={isCurrent(item.href) ? 'page' : undefined}
+              class="inline-flex min-h-11 items-center text-sm font-semibold text-[#4d6059] transition-colors hover:text-forest aria-[current=page]:text-forest aria-[current=page]:shadow-[0_2px_0_var(--color-forest)]"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a
+        href={youtubeHref}
+        class="btn btn-primary hidden sm:inline-flex"
+        {...(site.youtubeUrl ? { target: '_blank', rel: 'noopener' } : {})}
+      >
+        <YouTubeIcon class="size-[18px]" />
+        YouTube
+        {site.youtubeUrl && <span class="sr-only">(membuka tab baru)</span>}
+      </a>
+      <MobileMenu currentPath={path} />
+    </div>
+  </div>
+</header>

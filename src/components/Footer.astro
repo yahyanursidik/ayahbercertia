@@ -1,0 +1,37 @@
+---
+import { navItems, site } from '../data/site';
+import { isMockCatalog } from '../data/catalog';
+
+const year = new Date().getFullYear();
+const linkClass = 'inline-flex min-h-9 items-center hover:text-white hover:underline';
+---
+
+<footer class="bg-deep text-[#e8f2e9]">
+  <div class="container-site grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
+    <div>
+      <p class="text-xl font-extrabold text-white">{site.name}</p>
+      <p class="mt-2 max-w-sm text-sm text-[#c9d8cf]">{site.tagline}</p>
+    </div>
+    <nav aria-label="Tautan footer">
+      <p class="text-xs font-bold tracking-[0.14em] text-[#a9c4b5] uppercase">Jelajahi</p>
+      <ul class="mt-3 space-y-1 text-sm">
+        {navItems.slice(1).map((item) => (
+          <li><a href={item.href} class={linkClass}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <div>
+      <p class="text-xs font-bold tracking-[0.14em] text-[#a9c4b5] uppercase">Informasi</p>
+      <ul class="mt-3 space-y-1 text-sm">
+        <li><a href="/privasi" class={linkClass}>Kebijakan Privasi</a></li>
+        <li><a href={site.youtubeUrl ?? '/#youtube'} class={linkClass}>Channel YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="container-site flex flex-col gap-1 py-5 text-xs text-[#b9cdc1] sm:flex-row sm:justify-between">
+      <p>© {year} {site.name} · {site.domain}</p>
+      {isMockCatalog && <p>Video yang tampil adalah data contoh, bukan dari channel YouTube.</p>}
+    </div>
+  </div>
+</footer>
