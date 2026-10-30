@@ -1,0 +1,17 @@
+{
+  "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
+  "channelUrl": "https://www.youtube.com/@ayahberceritabersama",
+  "mapping": {
+    "_comment": "Prioritas: videos (per ID) > playlists (per ID playlist) > hashtags (di deskripsi YouTube). Video tanpa kecocokan tampil dengan label netral.",
+    "videos": {},
+    "playlists": {},
+    "hashtags": {
+      "SainsAnak": { "audience": "child", "topics": ["sains"] },
+      "TauhidAnak": { "audience": "child", "topics": ["tauhid"] },
+      "AdabAnak": { "audience": "child", "topics": ["adab"] },
+      "KisahAnak": { "audience": "child", "topics": ["kisah"] },
+      "AktivitasAnak": { "audience": "child", "topics": ["aktivitas"] },
+      "CatatanAyah": { "audience": "father", "topics": [] }
+    }
+  }
+}

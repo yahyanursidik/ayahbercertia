@@ -3,7 +3,7 @@ import type { Audience, Editorial } from '../lib/videos';
 
 interface Props {
   editorial: Editorial;
-  audience: Audience;
+  audience: Audience | null;
 }
 
 const { editorial, audience } = Astro.props;

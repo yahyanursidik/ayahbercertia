@@ -2,9 +2,11 @@ import type { Catalog, Video } from '../lib/videos';
 import { byNewest } from '../lib/videos';
 import mock from './videos.mock.json';
 
-// Sementara memakai data contoh. Setelah sinkronisasi YouTube tersedia,
-// ganti sumber ini dengan manifest hasil sync (mis. ./videos.json).
-const catalog = mock as Catalog;
+// Sumber utama: videos.json hasil `npm run sync` (scripts/sync-youtube.mjs).
+// Data contoh hanya dipakai bila file itu belum ada, atau saat USE_MOCK_CATALOG=1 untuk meninjau desain.
+const synced = Object.values(import.meta.glob<Catalog>('./videos.json', { eager: true, import: 'default' }))[0];
+const useMock = import.meta.env.USE_MOCK_CATALOG === '1' || !synced;
+const catalog = useMock ? (mock as Catalog) : synced;
 
 export const isMockCatalog = catalog.isMock;
 

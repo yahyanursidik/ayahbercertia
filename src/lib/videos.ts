@@ -1,4 +1,6 @@
 // Skema video ternormalisasi — 03-YOUTUBE-INTEGRATION.md §3
+import { parseTitle } from './youtube-title.js';
+
 export type Audience = 'child' | 'father';
 
 /** Modul editorial opsional — hanya ditampilkan bila sudah disunting tim (reviewed: true). */
@@ -18,12 +20,16 @@ export interface Video {
   title: string;
   description: string;
   publishedAt: string;
-  durationSeconds: number;
+  /** null bila sumbernya tidak memuat durasi (mis. feed RSS). */
+  durationSeconds: number | null;
   /** Disalin persis dari YouTube API; null jika tidak tersedia. */
   thumbnailUrl: string | null;
   /** null selama channel belum tersambung (data contoh). */
   youtubeUrl: string | null;
-  audience: Audience;
+  /** Video vertikal YouTube Shorts; thumbnail 4:3/16:9-nya perlu di-crop ke tengah. */
+  isShort?: boolean;
+  /** null = belum terpetakan ke playlist/hashtag mana pun → label netral. */
+  audience: Audience | null;
   topics: string[];
   playlistIds: string[];
   embeddable: boolean;
@@ -35,6 +41,7 @@ export interface Video {
 export interface Catalog {
   /** true = data contoh untuk keperluan desain, bukan hasil sinkronisasi YouTube. */
   isMock: boolean;
+  source?: 'youtube-api' | 'youtube-rss';
   lastSyncedAt: string | null;
   videos: Video[];
 }
@@ -48,6 +55,25 @@ export const audiencePath: Record<Audience, string> = {
   child: '/cerita-anak',
   father: '/catatan-ayah',
 };
+
+/** Judul tampilan tanpa awalan "Judul:" dan akhiran "| Ayah Bercerita #001". */
+export function displayTitle(video: Pick<Video, 'title'>): string {
+  return parseTitle(video.title).title;
+}
+
+export function episodeNumber(video: Pick<Video, 'title'>): number | null {
+  return parseTitle(video.title).episode;
+}
+
+/** Deskripsi tanpa baris yang hanya berisi hashtag atau tautan ke situs ini sendiri. */
+export function cleanDescription(description: string): string {
+  return description
+    .split('\n')
+    .filter((line) => !/^\s*(#[\p{L}\p{N}_]+\s*)+$/u.test(line) && !/^\W*ayahbercerita\.my\.id\/?\s*$/i.test(line))
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
 
 export interface Topic {
   slug: string;
@@ -85,6 +111,12 @@ export function formatDate(iso: string): string {
   return new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Jakarta' }).format(
     new Date(iso),
   );
+}
+
+/** Label kartu: "Cerita untuk Kita · Sains", atau hanya topik bila audiens belum terpetakan. */
+export function videoMeta(video: Video): string {
+  const parts = [video.audience ? audienceLabel[video.audience] : null, video.topics[0] ? topicLabel(video.topics[0]) : null];
+  return parts.filter(Boolean).join(' · ') || 'Video';
 }
 
 /** Durasi ISO 8601 untuk JSON-LD VideoObject. */

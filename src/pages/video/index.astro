@@ -5,6 +5,7 @@ import FilterBar from '../../components/FilterBar.astro';
 import VideoCard from '../../components/VideoCard.astro';
 import MockNotice from '../../components/MockNotice.astro';
 import { publicVideos } from '../../data/catalog';
+import { displayTitle } from '../../lib/videos';
 
 const PAGE_SIZE = 12;
 ---
@@ -38,8 +39,8 @@ const PAGE_SIZE = 12;
         {publicVideos.map((video, i) => (
           <li
             data-video
-            data-title={video.title.toLowerCase()}
-            data-audience={video.audience}
+            data-title={displayTitle(video).toLowerCase()}
+            data-audience={video.audience ?? ""}
             data-topics={video.topics.join(' ')}
             data-date={Date.parse(video.publishedAt)}
             class:list={[i >= PAGE_SIZE && 'hidden']}

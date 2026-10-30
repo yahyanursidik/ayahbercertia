@@ -1,6 +1,6 @@
 ---
 import type { Video } from '../lib/videos';
-import { audienceLabel, formatDuration, topicLabel } from '../lib/videos';
+import { displayTitle, episodeNumber, formatDuration, videoMeta } from '../lib/videos';
 import ObjectArt from './ObjectArt.astro';
 
 interface Props {
@@ -10,6 +10,7 @@ interface Props {
 
 const { video, class: className } = Astro.props;
 const topic = video.topics[0];
+const episode = episodeNumber(video);
 ---
 
 <article class:list={['group relative min-w-0', className]}>
@@ -20,14 +21,20 @@ const topic = video.topics[0];
         alt=""
         loading="lazy"
         decoding="async"
-        class="absolute inset-0 size-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+        class:list={[
+          'absolute inset-0 size-full object-cover transition-transform duration-300',
+          // Thumbnail Shorts berbentuk lanskap dengan video vertikal di tengah: perbesar agar sisi gelapnya terpotong.
+          video.isShort ? 'scale-[1.3] group-hover:scale-[1.34]' : 'group-hover:scale-[1.03]',
+        ]}
       />
     ) : (
       <ObjectArt topic={topic} seed={video.id} />
     )}
-    <span class="absolute bottom-3 left-3 rounded-md bg-[#17362d]/90 px-2 py-0.5 text-xs font-bold text-white">
-      <span class="sr-only">Durasi </span>{formatDuration(video.durationSeconds)}
-    </span>
+    {video.durationSeconds !== null && (
+      <span class="absolute bottom-3 left-3 rounded-md bg-[#17362d]/90 px-2 py-0.5 text-xs font-bold text-white">
+        <span class="sr-only">Durasi </span>{formatDuration(video.durationSeconds)}
+      </span>
+    )}
     <span
       class="absolute right-3 bottom-3 grid size-10 place-items-center rounded-full bg-white/95 text-forest transition-colors group-hover:bg-forest group-hover:text-white"
       aria-hidden="true"
@@ -40,8 +47,10 @@ const topic = video.topics[0];
       href={`/video/${video.slug}`}
       class="after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none focus-visible:after:outline-3 focus-visible:after:outline-offset-4 focus-visible:after:outline-amber"
     >
-      {video.title}
+      {displayTitle(video)}
     </a>
   </h3>
-  <p class="mt-1 text-xs text-muted">{audienceLabel[video.audience]} · {topicLabel(topic)}</p>
+  <p class="mt-1 text-xs text-muted">
+    {videoMeta(video)}{episode !== null && <> · <span class="sr-only">Episode </span>#{String(episode).padStart(3, '0')}</>}
+  </p>
 </article>

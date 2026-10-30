@@ -1,0 +1,28 @@
+{
+  "isMock": false,
+  "source": "youtube-rss",
+  "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
+  "lastSyncedAt": "2026-10-30T15:08:53.775Z",
+  "total": 1,
+  "videos": [
+    {
+      "id": "cKu4W6jGXoM",
+      "slug": "kenapa-hujan-turun-cKu4W6jGXoM",
+      "title": "Judul: Kenapa Hujan Turun? 🌧️ | Ayah Bercerita #001",
+      "description": "Yuk, cari tahu bagaimana hujan terbentuk dan mengenal salah satu nikmat Allah yang luar biasa.\n\nBelajar, berkisah, dan bertumbuh bersama.\n\n🌐 ayahbercerita.my.id\n\n#AyahBercerita #SainsAnak #BelajarBersamaAyah",
+      "publishedAt": "2026-10-30T15:01:54.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i4.ytimg.com/vi/cKu4W6jGXoM/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/cKu4W6jGXoM",
+      "isShort": true,
+      "audience": "child",
+      "topics": [
+        "sains"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    }
+  ]
+}
