@@ -2,9 +2,47 @@
   "isMock": false,
   "source": "youtube-rss",
   "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
-  "lastSyncedAt": "2026-10-30T15:08:53.775Z",
-  "total": 1,
+  "lastSyncedAt": "2026-10-31T07:00:10.402Z",
+  "total": 3,
   "videos": [
+    {
+      "id": "JAohlxiyBlk",
+      "slug": "mengapa-kita-harus-meminta-izin-JAohlxiyBlk",
+      "title": "Mengapa Kita Harus Meminta Izin? 🚪 | Ayah Bercerita #003",
+      "description": "Nak, kenapa kita harus meminta izin sebelum masuk?\n\nIslam mengajarkan kita untuk menghormati orang lain, memberi salam, dan tidak masuk tanpa izin.\n\nYuk, belajar adab sederhana ini bersama Ayah!\n\n📖 QS. An-Nur: 27–28\n\n🌐 ayahbercerita.my.id\n\n#AyahBercerita #AdabAnak #PendidikanIslam",
+      "publishedAt": "2026-10-31T06:48:19.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i3.ytimg.com/vi/JAohlxiyBlk/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/JAohlxiyBlk",
+      "isShort": true,
+      "audience": "child",
+      "topics": [
+        "adab"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
+    {
+      "id": "udL49rjI_wI",
+      "slug": "katanya-hujan-di-desa-lebih-segar-daripada-di-kota-benarkah-udL49rjI_wI",
+      "title": "🌧️ Katanya, hujan di desa lebih segar daripada di kota. Benarkah? #ayahbercerita #belajarbersamaayah",
+      "description": "Ternyata, aroma tanah, tumbuhan, dan kondisi udara punya peran masing-masing.\n\nYuk, cari tahu bersama Ayah dan belajar melihat alam dengan lebih teliti.\n\nAyah Bercerita — Belajar, berkisah, dan bertumbuh bersama.\n\n#AyahBercerita #SainsAnak #BelajarBersamaAyah",
+      "publishedAt": "2026-10-31T05:18:32.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i2.ytimg.com/vi/udL49rjI_wI/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/udL49rjI_wI",
+      "isShort": true,
+      "audience": "child",
+      "topics": [
+        "sains"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
     {
       "id": "cKu4W6jGXoM",
       "slug": "kenapa-hujan-turun-cKu4W6jGXoM",
