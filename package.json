@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "sync": "node scripts/sync-youtube.mjs"
+    "sync": "node scripts/sync-youtube.mjs",
+    "brand": "node scripts/build-brand-assets.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

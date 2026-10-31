@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { navItems, site } from '../data/site';
 import { isMockCatalog } from '../data/catalog';
+import logoLight from '../assets/brand/logo-wordmark-light.png';
 
 const year = new Date().getFullYear();
 const linkClass = 'inline-flex min-h-9 items-center hover:text-white hover:underline';
@@ -9,8 +11,10 @@ const linkClass = 'inline-flex min-h-9 items-center hover:text-white hover:under
 <footer class="bg-deep text-[#e8f2e9]">
   <div class="container-site grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
     <div>
-      <p class="text-xl font-extrabold text-white">{site.name}</p>
-      <p class="mt-2 max-w-sm text-sm text-[#c9d8cf]">{site.tagline}</p>
+      <a href="/" class="inline-block rounded-md" aria-label={`${site.name} — Beranda`}>
+        <Image src={logoLight} alt="" width={132} densities={[1, 2]} class="h-auto w-[132px]" />
+      </a>
+      <p class="mt-4 max-w-sm text-sm text-[#c9d8cf]">{site.tagline}</p>
     </div>
     <nav aria-label="Tautan footer">
       <p class="text-xs font-bold tracking-[0.14em] text-[#a9c4b5] uppercase">Jelajahi</p>

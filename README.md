@@ -50,6 +50,18 @@ diambil dari akhiran itu. Slug URL dibuat sekali per video ID dan tidak berubah 
 `src/data/editorial/<ID-video>.json` dengan `"reviewed": true` (bentuknya lihat tipe `Editorial` di
 `src/lib/videos.ts`). Tanpa file itu, modul disembunyikan.
 
+## Logo
+
+Sumber logo ada di `brand/source/` (`logo-wordmark.webp`, `logo-mark.webp`, latar putih). Jalankan
+`npm run brand` setelah mengganti logo; script `scripts/build-brand-assets.mjs` membuat:
+
+- `src/assets/brand/logo-wordmark.png`: transparan, untuk header (dioptimasi otomatis ke WebP saat build)
+- `src/assets/brand/logo-wordmark-light.png`: navy → krem, untuk footer berlatar gelap
+- `src/assets/brand/logo-mark.png`: monogram "AB" transparan
+- `public/favicon.ico` (16/32/48), `favicon-32.png`, `apple-touch-icon.png`, `icon-192/512.png`,
+  `icon-maskable-512.png` (dipakai `site.webmanifest`)
+- `public/og-default.png`: gambar share 1200×630 untuk halaman tanpa thumbnail video
+
 ## Struktur
 
 ```
@@ -80,5 +92,4 @@ State dibagikan lewat query string: `?q=…&audience=child|father&topic=…&sort
 
 - **Hosting**: belum dipilih. Sambungkan repo ini ke Netlify/Cloudflare Pages/Vercel (build `npm run build`,
   output `dist`) agar setiap commit sinkronisasi ter-deploy otomatis.
-- **Logo**: header memakai wordmark teks "AB" sampai logo resmi tersedia.
 - **Kontak publik** di `/privasi` dan `/tentang` belum ada.

@@ -10,13 +10,24 @@ import AboutBrief from '../components/AboutBrief.astro';
 import YouTubeCta from '../components/YouTubeCta.astro';
 import MockNotice from '../components/MockNotice.astro';
 import { childVideos, fatherVideos, publicVideos } from '../data/catalog';
+import { site } from '../data/site';
 
 const latest = publicVideos.slice(0, 3);
 const childPicks = childVideos.slice(0, 4);
 const fatherPicks = fatherVideos.slice(0, 4);
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  url: Astro.site?.href,
+  logo: new URL('/icon-512.png', Astro.site).href,
+  ...(site.youtubeUrl && { sameAs: [site.youtubeUrl] }),
+};
 ---
 
 <BaseLayout>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(organization)} />
   <Hero />
 
   <section class="section" aria-labelledby="topik">

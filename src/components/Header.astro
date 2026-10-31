@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { navItems, site } from '../data/site';
+import logo from '../assets/brand/logo-wordmark.png';
 import MobileMenu from './MobileMenu.astro';
 import YouTubeIcon from './YouTubeIcon.astro';
 
@@ -10,10 +12,8 @@ const youtubeHref = site.youtubeUrl ?? '/#youtube';
 
 <header class="sticky top-0 z-40 border-b border-line/80 bg-paper/90 backdrop-blur-md">
   <div class="container-site flex h-16 items-center justify-between gap-6 md:h-[72px]">
-    <a href="/" class="flex shrink-0 items-center gap-2.5 font-extrabold tracking-tight text-deep">
-      <!-- Wordmark placeholder sampai logo resmi tersedia -->
-      <span class="grid size-10 place-items-center rounded-xl bg-forest text-[15px] font-black text-white" aria-hidden="true">AB</span>
-      <span class="text-[17px]">{site.name}</span>
+    <a href="/" class="flex shrink-0 items-center rounded-md" aria-label={`${site.name} — Beranda`}>
+      <Image src={logo} alt="" width={116} densities={[1, 2]} loading="eager" fetchpriority="high" class="h-auto w-[88px] md:w-[116px]" />
     </a>
 
     <nav aria-label="Navigasi utama" class="hidden lg:block">
