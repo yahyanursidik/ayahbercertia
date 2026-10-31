@@ -2,9 +2,26 @@
   "isMock": false,
   "source": "youtube-rss",
   "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
-  "lastSyncedAt": "2026-10-31T07:00:10.402Z",
-  "total": 3,
+  "lastSyncedAt": "2026-10-31T14:35:29.335Z",
+  "total": 4,
   "videos": [
+    {
+      "id": "jS_R8xzq2HU",
+      "slug": "ayah-dengarkan-dulu-catatan-ayah-jS_R8xzq2HU",
+      "title": "Ayah, Dengarkan Dulu | Catatan Ayah #004",
+      "description": "Kadang anak datang membawa cerita, tetapi kita terlalu cepat memberikan nasihat.\n\nMungkin yang ia butuhkan saat itu adalah didengarkan terlebih dahulu.\n\nMendengarkan bukan berarti selalu menyetujui. Kita sedang berusaha memahami sebelum mengarahkan.\n\nAyah Bercerita — Belajar dan bertumbuh bersama.\n\n🌐 ayahbercerita.my.id\n\n#AyahBercerita #CatatanAyah #ParentingIslami",
+      "publishedAt": "2026-10-31T07:27:56.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i3.ytimg.com/vi/jS_R8xzq2HU/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/jS_R8xzq2HU",
+      "isShort": true,
+      "audience": "father",
+      "topics": [],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
     {
       "id": "JAohlxiyBlk",
       "slug": "mengapa-kita-harus-meminta-izin-JAohlxiyBlk",
