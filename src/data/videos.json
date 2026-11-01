@@ -2,9 +2,28 @@
   "isMock": false,
   "source": "youtube-rss",
   "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
-  "lastSyncedAt": "2026-10-31T14:35:29.335Z",
-  "total": 4,
+  "lastSyncedAt": "2026-11-01T15:16:50.976Z",
+  "total": 5,
   "videos": [
+    {
+      "id": "Desmz46wJp8",
+      "slug": "kenapa-daun-menguning-Desmz46wJp8",
+      "title": "Kenapa Daun Menguning? 🍂 | Ayah Bercerita #005",
+      "description": "Nak, pernah melihat daun yang tadinya hijau, lalu berubah menjadi kuning?\n\nTernyata, perubahan warna daun bisa terjadi secara alami, tetapi bisa juga dipengaruhi kondisi lingkungan.\n\nYuk, cari tahu tentang klorofil dan belajar mengamati tumbuhan bersama Ayah!\n\n🌿 Belajar, berkisah, dan bertumbuh bersama.\n\n🌐 ayahbercerita.my.id\n\n#AyahBercerita #SainsAnak #BelajarBersamaAyah",
+      "publishedAt": "2026-11-01T03:10:30.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i1.ytimg.com/vi/Desmz46wJp8/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/Desmz46wJp8",
+      "isShort": true,
+      "audience": "child",
+      "topics": [
+        "sains"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
     {
       "id": "jS_R8xzq2HU",
       "slug": "ayah-dengarkan-dulu-catatan-ayah-jS_R8xzq2HU",
