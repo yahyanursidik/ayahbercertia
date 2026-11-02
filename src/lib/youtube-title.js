@@ -2,7 +2,8 @@
 
 /**
  * Merapikan judul YouTube untuk tampilan: membuang awalan "Judul:", hashtag di akhir judul, dan akhiran
- * "| Ayah Bercerita #001" (nomor episode dikembalikan terpisah). Isi judul tidak diubah.
+ * seri seperti "| Ayah Bercerita #001" atau "| Catatan Ayah #004" (nomor episode dikembalikan terpisah).
+ * Isi judul tidak diubah.
  * @param {string} raw
  * @returns {{ title: string, episode: number | null }}
  */
@@ -10,7 +11,7 @@ export function parseTitle(raw) {
   let title = raw.replace(/^\s*judul\s*:\s*/i, '');
   let episode = null;
   // Akhiran episode dibaca dulu: "#001" juga cocok dengan pola hashtag di bawah.
-  const suffix = title.match(/\s*[|｜]\s*Ayah Bercerita\s*(?:#\s*(\d+))?\s*$/i);
+  const suffix = title.match(/\s*[|｜]\s*(?:Ayah Bercerita|Catatan Ayah|Cerita untuk Kita)\s*(?:#\s*(\d+))?\s*$/i);
   if (suffix) {
     episode = suffix[1] ? Number(suffix[1]) : null;
     title = title.slice(0, suffix.index);

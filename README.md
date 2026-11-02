@@ -16,12 +16,15 @@ npm run build    # output ke dist/
 
 ## Sinkronisasi YouTube otomatis
 
-Workflow [`.github/workflows/sync-youtube.yml`](.github/workflows/sync-youtube.yml) berjalan **tiap 2 jam**
+Workflow [`.github/workflows/sync-youtube.yml`](.github/workflows/sync-youtube.yml) dijadwalkan **tiap 30 menit**
 (bisa juga dijalankan manual dari tab *Actions* → *Sinkronisasi video YouTube* → *Run workflow*):
 
 1. `scripts/sync-youtube.mjs` mengambil video publik channel.
 2. Jika ada perubahan, website dibuild untuk validasi, lalu `src/data/videos.json` di-commit ke `main`.
 3. Hosting yang tersambung ke repo (Netlify/Cloudflare Pages/Vercel) men-deploy otomatis dari push itu.
+
+Jadwal GitHub Actions bersifat *best effort* (bisa terlambat atau dilewati saat GitHub sibuk), jadi video baru
+biasanya muncul dalam 30–90 menit. Butuh segera? Jalankan workflow secara manual.
 
 Jika tidak ada video baru, tidak ada commit dan tidak ada deploy. Jika sinkronisasi gagal (jaringan, kuota,
 key salah), job ditandai gagal dan `videos.json` terakhir tetap dipakai.
@@ -31,6 +34,7 @@ key salah), job ditandai gagal dan `videos.json` terakhir tetap dipakai.
 | | Tanpa API key (default) | Dengan secret `YOUTUBE_API_KEY` |
 |---|---|---|
 | Sumber | Feed RSS publik channel + cek oEmbed | YouTube Data API v3 |
+| Cadangan bila gagal | Ulang 4× lalu feed playlist *uploads* channel | Ulang dengan jeda bertahap |
 | Jumlah video | 15 terbaru per sinkronisasi (video lama tetap tersimpan) | Semua upload |
 | Durasi | Tidak tersedia (badge durasi disembunyikan) | Ada |
 | Video dihapus/privat | Terdeteksi lewat oEmbed | Terdeteksi lewat status API |

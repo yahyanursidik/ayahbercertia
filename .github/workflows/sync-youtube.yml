@@ -2,8 +2,10 @@ name: Sinkronisasi video YouTube
 
 on:
   schedule:
-    # Tiap 2 jam (menit 17 agar tidak bertabrakan dengan antrean jam bulat). Jadwal GitHub bisa terlambat beberapa menit.
-    - cron: '17 */2 * * *'
+    # Tiap 30 menit (menit 7 dan 37, menghindari antrean jam bulat). Jadwal GitHub bersifat "best effort":
+    # sering terlambat berjam-jam atau dilewati, jadi frekuensi tinggi menjaga jeda nyata tetap pendek.
+    # Saat tidak ada video baru, job selesai dalam ±20 detik tanpa commit.
+    - cron: '7,37 * * * *'
   workflow_dispatch:
 
 permissions:

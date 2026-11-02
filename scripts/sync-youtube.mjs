@@ -20,7 +20,7 @@ const API_KEY = process.env.YOUTUBE_API_KEY?.trim() || null;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const redact = (url) => String(url).replace(/([?&]key=)[^&]+/, '$1***');
 
-async function fetchWithRetry(url, { attempts = 3, okStatuses = [] } = {}) {
+async function fetchWithRetry(url, { attempts = 3, okStatuses = [], retryStatuses = [] } = {}) {
   let lastError;
   for (let i = 0; i < attempts; i++) {
     if (i) await sleep(1000 * 2 ** i);
@@ -33,8 +33,29 @@ async function fetchWithRetry(url, { attempts = 3, okStatuses = [] } = {}) {
     }
     if (res.ok || okStatuses.includes(res.status)) return res;
     lastError = new Error(`HTTP ${res.status} untuk ${redact(url)}`);
-    // Hanya 429 dan 5xx yang layak diulang.
-    if (res.status !== 429 && res.status < 500) break;
+    // Umumnya hanya 429 dan 5xx yang layak diulang.
+    if (res.status !== 429 && res.status < 500 && !retryStatuses.includes(res.status)) break;
+  }
+  throw lastError;
+}
+
+/**
+ * Feed RSS YouTube sesekali menjawab 404/500 untuk channel yang sebenarnya ada.
+ * Ulangi beberapa kali, lalu coba feed playlist "uploads" channel (UU…) sebagai jalur cadangan.
+ */
+async function fetchChannelFeed(channelId) {
+  const urls = [
+    `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`,
+    `https://www.youtube.com/feeds/videos.xml?playlist_id=UU${channelId.slice(2)}`,
+  ];
+  let lastError;
+  for (const url of urls) {
+    try {
+      return await (await fetchWithRetry(url, { attempts: 4, retryStatuses: [404] })).text();
+    } catch (error) {
+      lastError = error;
+      console.warn(`⚠ ${error.message}`);
+    }
   }
   throw lastError;
 }
@@ -170,8 +191,7 @@ async function oembedStatus(id) {
 }
 
 async function fromRss(config, cache) {
-  const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${config.channelId}`;
-  const entries = parseFeed(await (await fetchWithRetry(feedUrl)).text());
+  const entries = parseFeed(await fetchChannelFeed(config.channelId));
 
   const playlistMembers = {};
   for (const playlistId of Object.keys(config.mapping.playlists ?? {})) {

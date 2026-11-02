@@ -2,9 +2,28 @@
   "isMock": false,
   "source": "youtube-rss",
   "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
-  "lastSyncedAt": "2026-11-02T09:37:04.987Z",
-  "total": 6,
+  "lastSyncedAt": "2026-11-02T14:10:03.929Z",
+  "total": 7,
   "videos": [
+    {
+      "id": "R6cqN-1WyiI",
+      "slug": "minyak-kayu-putih-dari-apa-kenapa-terasa-hangat-R6cqN-1WyiI",
+      "title": "Minyak Kayu Putih dari Apa? Kenapa Terasa Hangat? | Ayah Bercerita #007",
+      "description": "Pernah penasaran, minyak kayu putih itu berasal dari apa?\n\nTernyata, minyak kayu putih terutama dihasilkan dari daun melalui proses penyulingan.\n\nLalu, kenapa bisa terasa hangat atau sejuk ketika digunakan?\n\nYuk, pelajari sains di balik benda sehari-hari bersama Ayah!\n\n🌐 ayahbercerita.my.id\n\nCatatan: Gunakan produk sesuai petunjuk kemasan dan jauhkan dari jangkauan anak.\n\n#AyahBercerita #SainsAnak #BelajarDariSekitar",
+      "publishedAt": "2026-11-02T10:58:28.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i3.ytimg.com/vi/R6cqN-1WyiI/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/R6cqN-1WyiI",
+      "isShort": true,
+      "audience": "child",
+      "topics": [
+        "sains"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
     {
       "id": "4r1bgSo0M6I",
       "slug": "kenapa-burung-berkicau-pagi-pagi-4r1bgSo0M6I",
