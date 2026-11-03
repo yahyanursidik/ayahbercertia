@@ -2,9 +2,28 @@
   "isMock": false,
   "source": "youtube-rss",
   "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
-  "lastSyncedAt": "2026-11-02T14:10:03.929Z",
-  "total": 7,
+  "lastSyncedAt": "2026-11-03T11:50:29.996Z",
+  "total": 8,
   "videos": [
+    {
+      "id": "gbEeozlRLSU",
+      "slug": "pedas-itu-bukan-rasa-kok-bisa-gbEeozlRLSU",
+      "title": "Pedas Itu Bukan Rasa? Kok Bisa? 🌶️ | Ayah Bercerita #008",
+      "description": "🌶️ Katanya pedas itu bukan rasa. Benarkah?\n\nTernyata, sensasi pedas dari cabai berbeda dengan rasa dasar seperti manis, asin, dan asam.\n\nAda senyawa bernama kapsaisin yang membuat saraf kita mengirimkan sinyal sensasi panas.\n\nYuk, mengenal cara kerja indra bersama Ayah!\n\n🌐 ayahbercerita.my.id\n\n#AyahBercerita #SainsAnak #BelajarBersamaAyah",
+      "publishedAt": "2026-11-03T10:21:03.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i4.ytimg.com/vi/gbEeozlRLSU/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/gbEeozlRLSU",
+      "isShort": true,
+      "audience": "child",
+      "topics": [
+        "sains"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
     {
       "id": "R6cqN-1WyiI",
       "slug": "minyak-kayu-putih-dari-apa-kenapa-terasa-hangat-R6cqN-1WyiI",
