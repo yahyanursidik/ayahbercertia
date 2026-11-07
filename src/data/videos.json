@@ -2,9 +2,66 @@
   "isMock": false,
   "source": "youtube-rss",
   "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
-  "lastSyncedAt": "2026-11-03T11:50:29.996Z",
-  "total": 8,
+  "lastSyncedAt": "2026-11-07T10:38:18.456Z",
+  "total": 11,
   "videos": [
+    {
+      "id": "DH3Vz21smBI",
+      "slug": "jangan-remehkan-kebaikan-kecil-DH3Vz21smBI",
+      "title": "Jangan Remehkan Kebaikan Kecil! | Ayah Bercerita #011",
+      "description": "Apakah kebaikan harus selalu besar dan luar biasa?\n\nRasulullah ﷺ mengajarkan agar kita tidak meremehkan kebaikan sedikit pun, bahkan bertemu saudara dengan wajah yang berseri-seri.\n\nDari membantu hal sederhana, memberi salam dengan ramah, hingga menawarkan pertolongan, ada banyak kesempatan berbuat baik dalam keseharian.\n\n📖 HR. Muslim no. 2626, dari Abu Dzar radhiyallahu ‘anhu.\n\nYuk, mulai dari satu kebaikan hari ini!\n\n🌐 ayahbercerita.my.id\n\n#AyahBercerita #HadisAnak #AdabAnak #KebaikanKecil",
+      "publishedAt": "2026-11-07T07:48:57.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i1.ytimg.com/vi/DH3Vz21smBI/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/DH3Vz21smBI",
+      "isShort": true,
+      "audience": "child",
+      "topics": [
+        "adab"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
+    {
+      "id": "ArOClT99j_Y",
+      "slug": "kenapa-lisan-dan-tangan-kita-tidak-boleh-menyakiti-ArOClT99j_Y",
+      "title": "Kenapa Lisan dan Tangan Kita Tidak Boleh Menyakiti? | Ayah Bercerita #010",
+      "description": "Apa artinya menjadi muslim yang tidak menyakiti orang lain?\n\nRasulullah ﷺ mengajarkan bahwa seorang muslim adalah orang yang kaum muslimin lainnya selamat dari gangguan lisan dan tangannya.\n\nDari hadis ini, kita belajar menjaga perkataan, tidak menyakiti, menghormati hak orang lain, dan memperbaiki kesalahan.\n\n📖 HR. Al-Bukhari no. 10, dari Abdullah bin ‘Amr radhiyallahu ‘anhuma.\n\nYuk, belajar adab bersama Ayah!\n\n🌐 ayahbercerita.my.id\n\n#AyahBercerita #HadisAnak #AdabAnak #PendidikanIslam",
+      "publishedAt": "2026-11-07T04:55:58.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i2.ytimg.com/vi/ArOClT99j_Y/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/ArOClT99j_Y",
+      "isShort": true,
+      "audience": "child",
+      "topics": [
+        "adab"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
+    {
+      "id": "dlJ8wMFkc4k",
+      "slug": "kenapa-kita-harus-berkata-baik-dlJ8wMFkc4k",
+      "title": "Kenapa Kita Harus Berkata Baik? | Ayah Bercerita #009",
+      "description": "Pernah berkata sesuatu yang ternyata membuat orang lain sedih?\n\nRasulullah ﷺ mengajarkan agar kita berkata baik atau diam.\n\nDari hadis ini, kita belajar menjaga perkataan, tidak mengejek, dan membiasakan ucapan yang membawa kebaikan.\n\nDiam dari perkataan buruk, tetapi tetap berani berbicara untuk kebenaran dan meminta pertolongan.\n\n📖 HR. Al-Bukhari no. 6018 dan Muslim no. 47.\n\nYuk, belajar adab bersama Ayah!\n\n🌐 ayahbercerita.my.id\n\n#AyahBercerita #AdabAnak #HadisAnak #PendidikanIslam",
+      "publishedAt": "2026-11-07T04:10:10.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i1.ytimg.com/vi/dlJ8wMFkc4k/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/dlJ8wMFkc4k",
+      "isShort": true,
+      "audience": "child",
+      "topics": [
+        "adab"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
     {
       "id": "gbEeozlRLSU",
       "slug": "pedas-itu-bukan-rasa-kok-bisa-gbEeozlRLSU",
