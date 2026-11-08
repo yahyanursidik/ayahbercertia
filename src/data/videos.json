@@ -2,9 +2,26 @@
   "isMock": false,
   "source": "youtube-rss",
   "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
-  "lastSyncedAt": "2026-11-07T20:48:25.306Z",
-  "total": 12,
+  "lastSyncedAt": "2026-11-08T14:14:30.633Z",
+  "total": 13,
   "videos": [
+    {
+      "id": "m75usTDLHeQ",
+      "slug": "ayah-kalau-tidak-ada-yang-melihat-tetap-dapat-pahala-m75usTDLHeQ",
+      "title": "Ayah, Kalau Tidak Ada yang Melihat, Tetap Dapat Pahala? | Ayah Bercerita",
+      "description": "Mengapa kita senang dipuji ketika melakukan kebaikan? Apakah amal yang tidak dilihat manusia tetap berarti?\n\nDalam episode Ayah Bercerita kali ini, Ayah dan Anak belajar memahami ikhlas, bahaya riya’, dan mengapa niat harus selalu diperbaiki.\n\nLandasan: HR. Muslim no. 2564 dan QS. Al-Kahfi: 110.\n\n#AyahBercerita #Ikhlas #PendidikanAnak",
+      "publishedAt": "2026-11-08T01:18:46.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i2.ytimg.com/vi/m75usTDLHeQ/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/m75usTDLHeQ",
+      "isShort": true,
+      "audience": null,
+      "topics": [],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
     {
       "id": "VbgbMe053NA",
       "slug": "ayah-kalau-kebaikannya-kecil-tetap-berharga-VbgbMe053NA",
