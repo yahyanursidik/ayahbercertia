@@ -2,9 +2,28 @@
   "isMock": false,
   "source": "youtube-rss",
   "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
-  "lastSyncedAt": "2026-11-08T14:14:30.633Z",
-  "total": 13,
+  "lastSyncedAt": "2026-11-11T21:51:41.683Z",
+  "total": 14,
   "videos": [
+    {
+      "id": "BSOqeDqGa0w",
+      "slug": "kok-tanah-bisa-jadi-genteng-yang-keras-BSOqeDqGa0w",
+      "title": "Kok Tanah Bisa Jadi Genteng yang Keras? | Ayah Bercerita #013",
+      "description": "Nak, pernah melihat genteng yang tersusun di atas rumah?\n\nTernyata, banyak genteng dibuat dari tanah liat!\n\nTapi bagaimana tanah yang lembek bisa berubah menjadi genteng yang keras?\n\nAda proses menarik yang dilalui: tanah diolah, dicetak, dikeringkan, lalu dibakar dalam tungku bersuhu tinggi.\n\nYuk, ikuti perjalanan tanah menjadi genteng dan kenali ilmu di balik benda yang kita gunakan sehari-hari.\n\n🌿 Belajar, berkisah, dan bertumbuh bersama.\n\n🌐 ayahbercerita.my.id\n\n#AyahBercerita #SainsAnak #BelajarDariSekitar",
+      "publishedAt": "2026-11-11T15:48:54.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i3.ytimg.com/vi/BSOqeDqGa0w/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/BSOqeDqGa0w",
+      "isShort": true,
+      "audience": "child",
+      "topics": [
+        "sains"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
     {
       "id": "m75usTDLHeQ",
       "slug": "ayah-kalau-tidak-ada-yang-melihat-tetap-dapat-pahala-m75usTDLHeQ",
