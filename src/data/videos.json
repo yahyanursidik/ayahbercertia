@@ -2,9 +2,28 @@
   "isMock": false,
   "source": "youtube-rss",
   "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
-  "lastSyncedAt": "2026-11-11T21:51:41.683Z",
-  "total": 14,
+  "lastSyncedAt": "2026-11-20T06:59:49.449Z",
+  "total": 15,
   "videos": [
+    {
+      "id": "6keoKjilJRU",
+      "slug": "menapa-langit-sore-bisa-ungu-mengenal-lembayung-6keoKjilJRU",
+      "title": "Menapa Langit Sore Bisa Ungu? Mengenal Lembayung | Ayah Bercerita #015",
+      "description": "Nak, pernah melihat langit sore berubah menjadi jingga, merah muda, atau keunguan?\n\nWarna indah itu sering kita sebut lembayung.\n\nTernyata, perubahan warna tersebut berkaitan dengan cahaya matahari yang melewati atmosfer Bumi. Cahaya dihamburkan, dan warna yang sampai kepada kita pun bisa berbeda.\n\nMasyaAllah, begitu banyak hal menarik dari ciptaan Allah yang dapat kita pelajari.\n\nYuk, kenali sains di balik langit lembayung bersama Ayah.\n\n🌿 Belajar, berkisah, dan bertumbuh bersama.\n\n🌐 ayahbercerita.my.id\n\n#AyahBercerita #SainsAnak #LangitLembayung",
+      "publishedAt": "2026-11-20T05:24:40.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i3.ytimg.com/vi/6keoKjilJRU/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/6keoKjilJRU",
+      "isShort": true,
+      "audience": "child",
+      "topics": [
+        "sains"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
     {
       "id": "BSOqeDqGa0w",
       "slug": "kok-tanah-bisa-jadi-genteng-yang-keras-BSOqeDqGa0w",
