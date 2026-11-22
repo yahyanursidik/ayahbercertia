@@ -2,9 +2,45 @@
   "isMock": false,
   "source": "youtube-rss",
   "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
-  "lastSyncedAt": "2026-11-20T06:59:49.449Z",
-  "total": 15,
+  "lastSyncedAt": "2026-11-22T07:21:56.852Z",
+  "total": 17,
   "videos": [
+    {
+      "id": "76V-Mp334fw",
+      "slug": "ayah-kenapa-colokan-listrik-ada-dua-lubang-di-luar-negeri-sa-76V-Mp334fw",
+      "title": "Ayah, Kenapa Colokan Listrik Ada Dua Lubang? Di Luar Negeri Sama? | Ayah Bercerita #016",
+      "description": "Nak, pernah bertanya kenapa stopkontak di rumah memiliki dua lubang?\n\nTernyata, ada penjelasan sains di baliknya! Dua jalur listrik membantu membentuk rangkaian agar peralatan dapat bekerja.\n\nTapi di negara lain, bentuk stekernya bisa berbeda. Ada yang bulat, pipih, bahkan tiga pin.\n\nBukan hanya bentuknya, tegangan listrik pun bisa berbeda.\n\nYuk, belajar mengenal teknologi di sekitar kita bersama Ayah!\n\n⚠️ Jangan memasukkan jari atau benda apa pun ke lubang stopkontak. Belajar cukup melalui gambar dan model yang tidak terhubung listrik.\n\n🌐 ayahbercerita.id\n\n#AyahBercerita #SainsAnak #TeknologiSehariHari",
+      "publishedAt": "2026-11-22T04:20:44.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i4.ytimg.com/vi/76V-Mp334fw/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/76V-Mp334fw",
+      "isShort": true,
+      "audience": "child",
+      "topics": [
+        "sains"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
+    {
+      "id": "ST99F4s-v4s",
+      "slug": "nak-apa-itu-tawakal-belajar-berusaha-dan-bersandar-kepada-al-ST99F4s-v4s",
+      "title": "Nak, Apa Itu Tawakal? | Belajar Berusaha dan Bersandar kepada Allah — Ayah Bercerita",
+      "description": "Tawakal bukan berarti berdiam diri tanpa usaha.\n\nMelalui kisah tentang benih kecil yang ditanam dan dirawat, kita belajar memahami makna ikhtiar, doa, dan bersandar kepada Allah.\n\nEpisode ini membahas makna tawakal berdasarkan QS. At-Talaq: 2–3, dengan bahasa sederhana dan contoh sehari-hari.\n\nAyah Bercerita — Cerita sederhana, pelajaran bermakna.\n\nhttps://ayahbercerita.id\n\n#AyahBercerita #Tawakal #PendidikanIslam",
+      "publishedAt": "2026-11-22T01:36:36.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i4.ytimg.com/vi/ST99F4s-v4s/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/ST99F4s-v4s",
+      "isShort": true,
+      "audience": null,
+      "topics": [],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
     {
       "id": "6keoKjilJRU",
       "slug": "menapa-langit-sore-bisa-ungu-mengenal-lembayung-6keoKjilJRU",
