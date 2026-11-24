@@ -2,9 +2,28 @@
   "isMock": false,
   "source": "youtube-rss",
   "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
-  "lastSyncedAt": "2026-11-23T22:33:41.591Z",
-  "total": 18,
+  "lastSyncedAt": "2026-11-24T06:20:35.917Z",
+  "total": 19,
   "videos": [
+    {
+      "id": "G5yfoq48zgU",
+      "slug": "ayah-kenapa-kaca-bening-dan-bisa-tembus-cahaya-G5yfoq48zgU",
+      "title": "Ayah, Kenapa Kaca Bening dan Bisa Tembus Cahaya? | Ayah Bercerita #017",
+      "description": "Nak, pernah melihat taman melalui jendela?\n\nKaca itu keras dan padat. Tapi kenapa kita masih bisa melihat benda di baliknya?\n\nTernyata, ada penjelasan sains yang menarik tentang bagaimana cahaya berinteraksi dengan kaca.\n\nDi episode ini, kita juga akan mengenal kenapa kaca bening berbeda dengan kaca buram, dan mengapa jendela kadang memantulkan bayangan.\n\nYuk, belajar dari benda-benda sederhana di sekitar rumah!\n\n🌐 ayahbercerita.id\n\n#AyahBercerita #SainsAnak #Cahaya #BelajarDariSekitar",
+      "publishedAt": "2026-11-24T04:55:11.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i4.ytimg.com/vi/G5yfoq48zgU/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/G5yfoq48zgU",
+      "isShort": true,
+      "audience": "child",
+      "topics": [
+        "sains"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
     {
       "id": "mG2I7x8uBHk",
       "slug": "nak-yuk-mengenal-rabb-kita-allah-belajar-tauhid-bersama-ayah-mG2I7x8uBHk",
