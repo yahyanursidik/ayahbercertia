@@ -2,9 +2,26 @@
   "isMock": false,
   "source": "youtube-rss",
   "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
-  "lastSyncedAt": "2026-11-24T06:20:35.917Z",
-  "total": 19,
+  "lastSyncedAt": "2026-11-24T18:12:32.846Z",
+  "total": 20,
   "videos": [
+    {
+      "id": "RnQ9L3tj8NQ",
+      "slug": "nak-kalau-ragu-kita-harus-bagaimana-RnQ9L3tj8NQ",
+      "title": "Nak, Kalau Ragu Kita Harus Bagaimana? | Ayah Bercerita #014",
+      "description": "Pernah tidak, Nak, merasa ragu saat hendak melakukan sesuatu?\n\nRasulullah ﷺ mengajarkan:\n\n“Tinggalkanlah apa yang meragukanmu menuju apa yang tidak meragukanmu.”\n\n📖 HR. At-Tirmidzi no. 2518, hadis hasan sahih.\n\nNamun, tidak setiap keraguan harus terus diikuti. Ada saatnya kita perlu mencari kejelasan, bertanya kepada orang yang berilmu, dan mengabaikan waswas yang berulang tanpa alasan.\n\nYuk, belajar berhati-hati dan mencari pengetahuan yang benar bersama Ayah.\n\n🌐 ayahbercerita.my.id\n\n#AyahBercerita #HadisAnak #BelajarAdab",
+      "publishedAt": "2026-11-24T06:22:51.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i3.ytimg.com/vi/RnQ9L3tj8NQ/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/RnQ9L3tj8NQ",
+      "isShort": true,
+      "audience": null,
+      "topics": [],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
     {
       "id": "G5yfoq48zgU",
       "slug": "ayah-kenapa-kaca-bening-dan-bisa-tembus-cahaya-G5yfoq48zgU",
