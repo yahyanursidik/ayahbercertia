@@ -2,9 +2,26 @@
   "isMock": false,
   "source": "youtube-rss",
   "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
-  "lastSyncedAt": "2026-11-24T18:12:32.846Z",
-  "total": 20,
+  "lastSyncedAt": "2026-11-25T02:44:31.916Z",
+  "total": 21,
   "videos": [
+    {
+      "id": "jzGPNNKvWBM",
+      "slug": "nak-apa-itu-dinul-islam-mengenal-agama-islam-ayah-bercerita-jzGPNNKvWBM",
+      "title": "Nak, Apa Itu Dinul Islam? | Mengenal Agama Islam — Ayah Bercerita",
+      "description": "",
+      "publishedAt": "2026-11-25T01:34:35.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i3.ytimg.com/vi/jzGPNNKvWBM/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/jzGPNNKvWBM",
+      "isShort": true,
+      "audience": null,
+      "topics": [],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
     {
       "id": "RnQ9L3tj8NQ",
       "slug": "nak-kalau-ragu-kita-harus-bagaimana-RnQ9L3tj8NQ",
