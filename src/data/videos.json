@@ -2,9 +2,28 @@
   "isMock": false,
   "source": "youtube-rss",
   "channelId": "UCVO2L239oEsKETwBHEpZ2jQ",
-  "lastSyncedAt": "2026-11-25T02:44:31.916Z",
-  "total": 21,
+  "lastSyncedAt": "2026-11-26T22:55:11.845Z",
+  "total": 22,
   "videos": [
+    {
+      "id": "iWiUUTyjb4M",
+      "slug": "ayah-kenapa-langit-biru-tanpa-awan-iWiUUTyjb4M",
+      "title": "Ayah, Kenapa Langit Biru Tanpa Awan? | Ayah Bercerita #018",
+      "description": "Nak, pernah melihat langit biru yang cerah, padahal tidak ada awan sama sekali?\n\nKenapa langit tetap berwarna biru?\n\nTernyata, penyebabnya bukan awan atau pantulan laut.\n\nCahaya matahari yang melewati atmosfer Bumi mengalami hamburan. Cahaya biru lebih kuat dihamburkan oleh molekul udara, sehingga langit yang cerah tampak biru bagi kita.\n\nMasyaAllah, bahkan udara yang tidak terlihat pun menyimpan banyak hal menarik untuk kita pelajari.\n\nYuk, cari tahu bersama Ayah!\n\n🌐 ayahbercerita.id\n\n#AyahBercerita #SainsAnak #LangitBiru #BelajarDariAlam",
+      "publishedAt": "2026-11-26T14:38:25.000Z",
+      "durationSeconds": null,
+      "thumbnailUrl": "https://i2.ytimg.com/vi/iWiUUTyjb4M/hqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/shorts/iWiUUTyjb4M",
+      "isShort": true,
+      "audience": "child",
+      "topics": [
+        "sains"
+      ],
+      "playlistIds": [],
+      "embeddable": true,
+      "status": "public",
+      "editorial": null
+    },
     {
       "id": "jzGPNNKvWBM",
       "slug": "nak-apa-itu-dinul-islam-mengenal-agama-islam-ayah-bercerita-jzGPNNKvWBM",
